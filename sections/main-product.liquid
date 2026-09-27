@@ -1,0 +1,112 @@
+{% comment %}
+  TAAGA BY DISHA - MAIN PRODUCT DETAIL PAGE (PDP) SECTION
+  Features:
+  - 4:5 High-Resolution Tactile Zoom Stage with Slow-Ease Micro-Interactions
+  - Weave inspection of AI-rendered fabric, pallu, and zari korvai borders
+  - Earthy Rust-Brown and Vibrant Peacock Teal luxury aesthetic
+{% endcomment %}
+
+<section class="pdp-section" style="padding: var(--space-xl) 0 var(--space-expansive) 0; background-color: var(--color-rust-base);">
+  <div class="catalog-container" style="max-width: var(--container-max-width); margin: 0 auto; padding: 0 var(--container-padding);">
+    
+    <div class="pdp-grid" style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: start;">
+      <!-- Left Column: High-Resolution Tactile Zoom Media Viewport -->
+      <div class="pdp-media-col" style="max-width: 580px; margin: 0 auto; width: 100%;">
+        {% render 'pdp-tactile-zoom', product: product %}
+      </div>
+
+      <!-- Right Column: Product Narrative & Acquisition -->
+      <div class="pdp-info-col" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <span class="sub-title">
+            {{ product.metafields.custom.craft_provenance | default: 'Bengal Pit Loom • 160 Hours Handwoven' }}
+          </span>
+          <h1 class="section-title" style="font-size: var(--font-size-h2); line-height: 1.15;">
+            {{ product.title | default: 'Surya Mukhi Jamdani Saree' }}
+          </h1>
+          <div class="product-card__price-row" style="margin-top: 0.5rem;">
+            <span class="product-card__price" style="font-size: 1.5rem; color: var(--color-teal-bright);">
+              {{ product.price | default: 3450000 | money }}
+            </span>
+            {%- if product.compare_at_price > product.price -%}
+              <span class="product-card__price--compare" style="font-size: 1.125rem;">
+                {{ product.compare_at_price | money }}
+              </span>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid var(--color-rust-border); border-bottom: 1px solid var(--color-rust-border); padding: 1.5rem 0;">
+          <p style="color: var(--color-text-muted-dark); line-height: 1.7; font-size: 0.9375rem;">
+            {{ product.description | default: 'Artisanal handloom saree crafted upon ancestral pit looms. Woven with pure mulberry silk yarns and real metallic zari threads. Hover over the imagery to inspect weave authenticity, pallu motifs, and border craftsmanship in 2.5x high-definition magnification.' }}
+          </p>
+        </div>
+
+        <!-- Add To Bag Form connecting to AJAX Cart Drawer -->
+        {% form 'product', product, id: 'pdp-add-to-bag-form', class: 'pdp-form' %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id | default: 'saree-pdp-sample' }}">
+          
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <button 
+              type="submit" 
+              class="btn-primary-teal" 
+              style="width: 100%; padding: 1.25rem 2rem; font-size: 0.9375rem;"
+              data-pdp-add-to-bag
+            >
+              <span>Acquire Creation &mdash; Add To Bag</span>
+            </button>
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; color: var(--color-zari-gold); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              <span>Complimentary insured shipping & Silk Mark certified</span>
+            </div>
+          </div>
+        {% endform %}
+
+        <!-- Weaver & Textile Pedigree -->
+        <div style="background-color: var(--color-rust-surface); border: 1px solid var(--color-rust-border); border-radius: var(--radius-card); padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.125rem; color: var(--color-text-on-dark);">Textile Specifications</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.8125rem; color: var(--color-text-muted-dark);">
+            <li style="display: flex; justify-content: space-between;"><span>Weave Structure:</span> <strong style="color: var(--color-text-on-dark);">Handspun Warp & Weft</strong></li>
+            <li style="display: flex; justify-content: space-between;"><span>Zari Composition:</span> <strong style="color: var(--color-text-on-dark);">Electroplated Gold / Silver Kadwa</strong></li>
+            <li style="display: flex; justify-content: space-between;"><span>Length & Blouse:</span> <strong style="color: var(--color-text-on-dark);">6.5 Metres (Includes 80cm Blouse)</strong></li>
+            <li style="display: flex; justify-content: space-between;"><span>Weaving Duration:</span> <strong style="color: var(--color-text-on-dark);">140 – 160 Artisan Hours</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @media (min-width: 900px) {
+    .pdp-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 5rem !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Main Product (Tactile Zoom)",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_tactile_zoom",
+      "label": "Enable High-Resolution Tactile Zoom",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "zoom_magnification",
+      "label": "Zoom Magnification Factor",
+      "min": 2,
+      "max": 4,
+      "step": 0.5,
+      "default": 2.5
+    }
+  ]
+}
+{% endschema %}

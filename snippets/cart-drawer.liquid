@@ -1,0 +1,91 @@
+{% comment %}
+  TAAGA BY DISHA - AJAX SLIDE-OUT CART DRAWER SNIPPET
+  Frictionless slide-out drawer powered by Shopify AJAX Cart API.
+  Allows adding items, updating quantities, and removing products without full page reload.
+{% endcomment %}
+
+<div 
+  class="cart-drawer-overlay" 
+  id="cart-drawer-overlay" 
+  aria-hidden="true"
+  tabindex="-1"
+></div>
+
+<aside 
+  class="cart-drawer" 
+  id="cart-drawer" 
+  role="dialog" 
+  aria-modal="true" 
+  aria-labelledby="cart-drawer-title"
+  aria-hidden="true"
+>
+  <!-- Drawer Header -->
+  <div class="cart-drawer__header">
+    <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+      <h2 class="cart-drawer__title" id="cart-drawer-title">Shopping Bag</h2>
+      <span style="font-size: 0.8125rem; color: var(--color-rust-muted);">
+        (<span id="cart-drawer-count">0</span> items)
+      </span>
+    </div>
+    <button 
+      type="button" 
+      class="cart-drawer__close" 
+      id="cart-drawer-close" 
+      aria-label="Close Shopping Bag"
+    >
+      &times;
+    </button>
+  </div>
+
+  <!-- Drawer Body: Dynamic Line Items -->
+      <!-- Live Gift Progression Bar -->
+    <div class="cart-gift-bar" id="cart-gift-bar">
+      <div class="cart-gift-bar__msg" id="cart-gift-msg">
+        <span>Add <strong>₹50,000</strong> for a <em>Complimentary Pure Silk Stole</em></span>
+        <span>0%</span>
+      </div>
+      <div class="cart-gift-bar__track">
+        <div class="cart-gift-bar__fill" id="cart-gift-fill"></div>
+      </div>
+    </div>
+    <div class="cart-drawer__body" id="cart-drawer-items" tabindex="0" data-lenis-prevent>
+    <!-- Populated dynamically via cart-drawer.js -->
+    <div class="cart-drawer__empty-state" id="cart-empty-state">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust-muted)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 1rem auto; display: block;" aria-hidden="true">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <p>Your artisanal saree collection is empty.</p>
+      <button type="button" class="btn-primary-teal" id="cart-drawer-shop-btn" style="padding: 0.875rem 1.75rem; font-size: 0.8125rem;">
+        Discover Handloom Silks
+      </button>
+    </div>
+  </div>
+
+  <!-- Drawer Footer: Subtotal, Shipping Perks & Checkout -->
+  <div class="cart-drawer__footer" id="cart-drawer-footer" style="display: none;">
+    <div class="cart-drawer__perks">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 14 14"></polyline>
+      </svg>
+      <span>Complimentary insured shipping & Silk Mark certified</span>
+    </div>
+
+    <div class="cart-drawer__subtotal-row">
+      <span class="cart-drawer__subtotal-label">Subtotal</span>
+      <span class="cart-drawer__subtotal-amount" id="cart-drawer-subtotal">₹0.00</span>
+    </div>
+
+    <p style="font-size: 0.75rem; color: var(--color-rust-muted); margin-top: -0.5rem;">
+      Taxes and duties calculated at checkout.
+    </p>
+
+    <form action="/checkout" method="post">
+      <button type="submit" name="checkout" class="btn-primary-teal cart-drawer__checkout-btn">
+        Proceed To Secure Checkout
+      </button>
+    </form>
+  </div>
+</aside>

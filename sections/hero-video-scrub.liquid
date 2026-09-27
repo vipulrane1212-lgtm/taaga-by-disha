@@ -1,0 +1,223 @@
+{% comment %}
+  TAAGA BY DISHA - HERO GSAP CANVAS VIDEO SCRUB SECTION
+  Shopify Online Store 2.0 Section
+  Maps extracted sequence of WebP frames to user scroll depth using HTML5 Canvas & GSAP ScrollTrigger.
+{% endcomment %}
+
+{{ 'taaga-theme.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign frame_count = section.settings.frame_count | default: 180
+  assign preload_count = section.settings.preload_count | default: 20
+  assign pad_length = section.settings.pad_length | default: 4
+  assign pin_duration = section.settings.pin_duration | default: '+=300%'
+  assign scrub_smoothness = section.settings.scrub_smoothness | default: 0.5
+  
+  # Calculate default asset URL template if custom CDN base not provided
+  if section.settings.custom_url_template != blank
+    assign url_template = section.settings.custom_url_template
+  else
+    # Maps to Shopify Theme Assets: frame_0001.webp ... frame_0180.webp
+    assign sample_asset = 'frame_0001.webp' | asset_url
+    assign url_template = sample_asset | replace: 'frame_0001.webp', 'frame_{index}.webp'
+  endif
+-%}
+
+<section 
+  id="HeroVideoScrub-{{ section.id }}" 
+  class="hero-scrub-section"
+  data-hero-video-scrub
+  data-frame-count="{{ frame_count }}"
+  data-preload-count="{{ preload_count }}"
+  data-pad-length="{{ pad_length }}"
+  data-url-template="{{ url_template }}"
+  data-worker-url="{{ 'frame-loader-worker.js' | asset_url }}"
+  data-pin-duration="{{ pin_duration }}"
+  data-scrub-smoothness="{{ scrub_smoothness }}"
+>
+  <div class="hero-scrub-container">
+    <!-- Pinned HTML5 Canvas for GPU-accelerated video frame scrubbing -->
+    <canvas 
+      class="hero-scrub-canvas"
+      role="img"
+      aria-label="{{ section.settings.accessibility_alt | default: 'Taaga by Disha handloom saree draping animation' }}"
+    ></canvas>
+
+    <!-- Radial vignette & tone mapping overlay -->
+    <div class="hero-scrub-overlay" aria-hidden="true"></div>
+
+    <!-- Hero Content Overlay with Luxury Typography -->
+    <div class="hero-scrub-content">
+      {%- if section.settings.badge_text != blank -%}
+        <div class="hero-scrub__badge">
+          <span class="hero-scrub__badge-dot" aria-hidden="true"></span>
+          <span>{{ section.settings.badge_text }}</span>
+        </div>
+      {%- endif -%}
+
+      <h1 class="hero-title hero-scrub__title">
+        {{ section.settings.heading | default: 'Taaga by Disha <br><em>The Poetics of Handloom</em>' }}
+      </h1>
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="hero-scrub__description">
+          {{ section.settings.subheading }}
+        </p>
+      {%- endif -%}
+
+      <div class="hero-scrub__actions">
+        {%- if section.settings.primary_cta_label != blank -%}
+          <a 
+            href="{{ section.settings.primary_cta_link | default: '#catalog' }}" 
+            class="btn-primary-teal"
+          >
+            <span>{{ section.settings.primary_cta_label }}</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.secondary_cta_label != blank -%}
+          <a 
+            href="{{ section.settings.secondary_cta_link | default: '#story' }}" 
+            class="btn-secondary-outline"
+          >
+            <span>{{ section.settings.secondary_cta_label }}</span>
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Scroll Hint Indicator -->
+    <div class="hero-scrub__scroll-hint" aria-hidden="true">
+      <span class="hero-scrub__scroll-line"></span>
+      <span>Scroll To Unfurl</span>
+    </div>
+
+    <!-- Preload Progress Status -->
+    <div class="hero-scrub__loader" aria-live="polite">
+      <div class="hero-scrub__spinner" aria-hidden="true"></div>
+      <span>Calibrating Weave</span>
+    </div>
+  </div>
+</section>
+
+<!-- Required GSAP & ScrollTrigger Libraries + Section Controller -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="{{ 'hero-video-scrub.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Hero Video Scrub",
+  "tag": "section",
+  "class": "section-hero-video-scrub",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video Scrub Frame Settings"
+    },
+    {
+      "type": "number",
+      "id": "frame_count",
+      "label": "Total Sequence Frames",
+      "default": 180,
+      "info": "Approximately 180 frames for a 6-second video at 30 frames per second."
+    },
+    {
+      "type": "number",
+      "id": "preload_count",
+      "label": "Eager Preload Frame Count",
+      "default": 20,
+      "info": "Number of initial frames to aggressively load for instant scroll responsiveness."
+    },
+    {
+      "type": "number",
+      "id": "pad_length",
+      "label": "Zero Padding Length",
+      "default": 4,
+      "info": "e.g., 4 for frame_0001.webp, 3 for frame_001.webp"
+    },
+    {
+      "type": "text",
+      "id": "custom_url_template",
+      "label": "Custom CDN URL Template (Optional)",
+      "info": "Leave blank to use theme assets/frame_{index}.webp. Use {index} placeholder, e.g. https://cdn.shopify.com/.../frame_{index}.webp"
+    },
+    {
+      "type": "text",
+      "id": "pin_duration",
+      "label": "Scroll Pin Distance",
+      "default": "+=300%",
+      "info": "Controls scroll feel. Examples: +=250%, +=3000px, +=400vh."
+    },
+    {
+      "type": "range",
+      "id": "scrub_smoothness",
+      "label": "Scrub Deceleration (seconds)",
+      "min": 0.1,
+      "max": 2.0,
+      "step": 0.1,
+      "default": 0.5
+    },
+    {
+      "type": "header",
+      "content": "Hero Messaging & Typography"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Sub-title Badge",
+      "default": "Artisanal Edition 2026 • Handwoven Heritage"
+    },
+    {
+      "type": "html",
+      "id": "heading",
+      "label": "Hero Title (HTML supported)",
+      "default": "Taaga by Disha <br><em>The Poetics of Handloom</em>"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading Description",
+      "default": "Each saree is an unfurling narrative of master weavers, pure mulberry silk, and hand-spun zari threads conceived in Bengal and Banaras."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_label",
+      "label": "Primary CTA Label",
+      "default": "Explore The Weaves"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_link",
+      "label": "Primary CTA URL"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_label",
+      "label": "Secondary CTA Label",
+      "default": "The Artisan Atelier"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_link",
+      "label": "Secondary CTA URL"
+    },
+    {
+      "type": "text",
+      "id": "accessibility_alt",
+      "label": "Accessibility Canvas Description",
+      "default": "Fluid handloom saree fabric draping and revealing hand-woven zari borders"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Video Scrub",
+      "category": "Hero"
+    }
+  ]
+}
+{% endschema %}

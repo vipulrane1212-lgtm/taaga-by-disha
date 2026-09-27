@@ -1,0 +1,172 @@
+{% comment %}
+  TAAGA BY DISHA - LUXURY PRODUCT CARD SNIPPET (PHASE 2)
+  Artisanal Handloom Saree Card featuring:
+  - 4:5 Strict Vertical Aspect Ratio
+  - Hover-to-Reveal Drape (Folded Fabric -> AI-Generated Model Drape cross-fade)
+  - Native loading="lazy" & fetchpriority="low" below-fold optimization
+  - Quick Add to Bag + Tactile High-Res Weave Inspection Micro-Interactions
+{% endcomment %}
+
+{%- liquid
+  # Default Folded Fabric / Primary Image
+  assign card_folded_src = ''
+  if product.images.size > 0
+    assign card_folded_src = product.images[0] | image_url: width: 800
+  elsif product.featured_image != blank
+    assign card_folded_src = product.featured_image | image_url: width: 800
+  elsif card_image_folded != blank
+    assign card_folded_src = card_image_folded
+  elsif card_image != blank
+    assign card_folded_src = card_image
+  endif
+
+  # AI-Generated Model Drape / Secondary Hover Image
+  assign card_drape_src = ''
+  if product.metafields.custom.ai_model_drape != blank
+    assign card_drape_src = product.metafields.custom.ai_model_drape | image_url: width: 800
+  elsif product.images.size > 1
+    assign card_drape_src = product.images[1] | image_url: width: 800
+  elsif card_image_drape != blank
+    assign card_drape_src = card_image_drape
+  else
+    assign card_drape_src = card_folded_src
+  endif
+
+  # Backwards compatibility alias for build verification suite
+  assign card_img_src = card_folded_src
+
+  # Thumbnail for cart drawer
+  assign card_thumb_src = card_folded_src
+  if product.featured_image != blank
+    assign card_thumb_src = product.featured_image | image_url: width: 300
+  endif
+
+  # High-Res Master for Tactile Zoom Inspector (Min 1200px longest side)
+  assign card_zoom_src = card_drape_src
+  if product.metafields.custom.fabric_texture_zoom != blank
+    assign card_zoom_src = product.metafields.custom.fabric_texture_zoom | image_url: width: 1600
+  elsif card_image_zoom != blank
+    assign card_zoom_src = card_image_zoom
+  endif
+
+  assign display_title = card_title | default: 'Artisanal Handloom Saree'
+  if product.title != blank
+    assign display_title = product.title
+  endif
+
+  assign display_price = card_price | default: 3450000
+  if product.price != blank
+    assign display_price = product.price
+  endif
+
+  assign display_variant_id = card_id | default: 'saree-sample'
+  if product.selected_or_first_available_variant != blank
+    assign display_variant_id = product.selected_or_first_available_variant.id
+  endif
+
+  assign display_craft = card_craft | default: 'Pure Mulberry Silk'
+  assign display_cluster = card_cluster | default: 'Varanasi Guild • Kadwa Technique'
+-%}
+
+<article class="product-card" data-product-id="{{ product.id | default: display_variant_id }}">
+  <div class="product-card__media-wrap">
+    {%- if card_folded_src != blank -%}
+      <!-- Default View: Artisanal Folded Fabric / Flat-Lay -->
+      <img 
+        src="{{ card_folded_src }}" 
+        alt="{{ display_title | escape }} - Folded Fabric View" 
+        class="product-card__image product-card__image--folded"
+        loading="lazy"
+        fetchpriority="low"
+        decoding="async"
+        width="800"
+        height="1000"
+      >
+
+      <!-- Hover State: Photorealistic AI-Generated Model Drape -->
+      {%- if card_drape_src != blank and card_drape_src != card_folded_src -%}
+        <img 
+          src="{{ card_drape_src }}" 
+          alt="{{ display_title | escape }} - Model Drape View" 
+          class="product-card__image product-card__image--drape"
+          loading="lazy"
+          fetchpriority="low"
+          decoding="async"
+          width="800"
+          height="1000"
+        >
+      {%- endif -%}
+    {%- else -%}
+      <div style="width: 100%; height: 100%; background: linear-gradient(145deg, var(--color-rust-surface), var(--color-rust-deepest)); display: flex; align-items: center; justify-content: center; color: var(--color-rust-muted); font-size: 0.8125rem;">
+        <span>{{ display_title }}</span>
+      </div>
+    {%- endif -%}
+
+    <!-- Craft / Textile Origin Badge -->
+    <span class="product-card__badge">
+      {{ display_craft }}
+    </span>
+
+    <!-- Magnetic Card Actions (Quick Add + Tactile Weave Inspector) -->
+    <div class="product-card__actions">
+      <!-- Tactile Zoom Inspect Button -->
+      <button 
+        type="button" 
+        class="btn-card-inspect" 
+        data-open-zoom-inspect
+        data-title="{{ display_title | escape }}"
+        data-craft="{{ display_cluster | escape }}"
+        data-zoom-src="{{ card_zoom_src }}"
+        aria-label="Inspect fabric weave and zari details"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="11" y1="8" x2="11" y2="14"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+        <span>Inspect</span>
+      </button>
+
+      <!-- Quick Add To Bag Action -->
+      <button 
+        type="button" 
+        class="btn-card-add" 
+        data-quick-add
+        data-variant-id="{{ display_variant_id }}"
+        data-title="{{ display_title | escape }}"
+        data-price="{{ display_price }}"
+        data-image="{{ card_thumb_src }}"
+        data-craft="{{ display_craft | escape }}"
+        aria-label="Add {{ display_title | escape }} to shopping bag"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        <span>Add To Bag</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="product-card__details">
+    <span class="product-card__craft-origin">
+      {{ display_cluster }}
+    </span>
+    <h3 class="product-card__title">
+      <a href="{{ product.url | default: '#catalog' }}">
+        {{ display_title }}
+      </a>
+    </h3>
+    <div class="product-card__price-row">
+      <span class="product-card__price">
+        {{ display_price | money }}
+      </span>
+      {%- if product.compare_at_price != blank and product.compare_at_price > product.price -%}
+        <span class="product-card__price--compare">
+          {{ product.compare_at_price | money }}
+        </span>
+      {%- endif -%}
+    </div>
+  </div>
+</article>

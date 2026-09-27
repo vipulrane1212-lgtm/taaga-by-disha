@@ -1,0 +1,112 @@
+{% comment %}
+  TAAGA BY DISHA - HEADER SECTION
+  Sticky navigation that begins fully transparent over the Hero Video Scrub canvas,
+  transitioning to a solid rust-noir background with subtle drop-shadow and blur
+  immediately upon scrolling past the hero.
+{% endcomment %}
+
+<header class="taaga-header" id="site-header" role="banner">
+  <div class="taaga-header__brand">
+    <a href="/" class="taaga-header__logo-text">
+      {{ section.settings.logo_text | default: 'TAAGA' }}
+    </a>
+    <span class="taaga-header__tagline">
+      {{ section.settings.tagline | default: 'BY DISHA • HANDLOOM' }}
+    </span>
+  </div>
+
+  <nav class="taaga-header__nav" aria-label="Main Navigation">
+    {%- for link in linklists.main-menu.links -%}
+      <a href="{{ link.url }}" class="taaga-header__nav-link">{{ link.title }}</a>
+    {%- else -%}
+      <!-- Default Luxury Navigation Links -->
+      <a href="#catalog" class="taaga-header__nav-link">Jamdani Weaves</a>
+      <a href="#catalog" class="taaga-header__nav-link">Chanderi Silks</a>
+      <a href="#catalog" class="taaga-header__nav-link">Pure Zari Kanjeevaram</a>
+      <a href="#heritage" class="taaga-header__nav-link">Our Weavers</a>
+    {%- endfor -%}
+  </nav>
+
+  <div class="taaga-header__actions">
+    <!-- Search Trigger (Optional) -->
+    <a href="/search" class="taaga-header__nav-link" aria-label="Search Collection" style="padding: 0;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </a>
+
+    <!-- Frictionless Cart Trigger -->
+    <button 
+      type="button" 
+      class="taaga-header__cart-trigger" 
+      id="cart-drawer-trigger" 
+      aria-label="Open shopping bag"
+      aria-controls="cart-drawer"
+      aria-expanded="false"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <span class="taaga-header__cart-count" id="cart-icon-bubble-count">
+        {{ cart.item_count | default: 0 }}
+      </span>
+    </button>
+  </div>
+</header>
+
+<script>
+  // Universal header scroll transition: seamlessly handles both hero canvas & non-hero pages
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+
+    const heroSection = document.querySelector('[data-hero-video-scrub]');
+    if (!heroSection) {
+      // Non-hero pages (collection, product, cart, story)
+      const onScroll = () => {
+        if (window.scrollY > 40) {
+          header.classList.add('header--scrolled');
+        } else {
+          header.classList.remove('header--scrolled');
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    } else if (!window.ScrollTrigger) {
+      // Fallback intersection observer if GSAP is not yet loaded
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            header.classList.add('header--scrolled');
+          } else {
+            header.classList.remove('header--scrolled');
+          }
+        });
+      }, { threshold: 0.05 });
+      observer.observe(heroSection);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Header Navigation",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Brand Logo Text",
+      "default": "TAAGA"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Brand Tagline",
+      "default": "BY DISHA • HANDLOOM"
+    }
+  ]
+}
+{% endschema %}

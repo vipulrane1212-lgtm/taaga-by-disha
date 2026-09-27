@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taaga by Disha | Artisanal Handloom Saree Boutique</title>
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./assets/taaga-theme.css">
+  
+  <!-- GSAP, ScrollTrigger & Lenis Fluid Scrolling CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+</head>
+<body class="template-index">
+
+  <!-- ========================================================================
+       1. STICKY DYNAMIC HEADER (Transparent -> Solid Rust + Drop Shadow)
+       ======================================================================== -->
+    <!-- ========================================================================
+       0. TOP ANNOUNCEMENT & PRIVILEGE TICKER BAR
+       ======================================================================== -->
+  <aside class="announcement-bar" role="region" aria-label="Privilege Announcements">
+    <div class="announcement-bar__inner">
+      <div class="announcement-bar__item is-active">
+        <span class="announcement-bar__pill">Inaugural Privilege</span>
+        <span>Complimentary Handcrafted Pure Silk Blouse Piece with orders above ₹25,000</span>
+        <span class="announcement-bar__code" data-copy-code="ATELIER2026" title="Click to copy code">Code: ATELIER2026</span>
+      </div>
+      <div class="announcement-bar__item">
+        <span class="announcement-bar__pill">Silk Mark Certified</span>
+        <span>100% Pure Mulberry &amp; Tussar Silk • Handwoven upon Ancestral Pit Looms</span>
+      </div>
+      <div class="announcement-bar__item">
+        <span class="announcement-bar__pill">Patron Concierge</span>
+        <span>Complimentary Insured Express Delivery Across India &amp; Worldwide • 14-Day Silk Trial</span>
+      </div>
+    </div>
+  </aside>
+
+  <header class="taaga-header" id="site-header" role="banner">
+    <div class="taaga-header__brand">
+      <a href="#" class="taaga-header__logo-text">TAAGA</a>
+      <span class="taaga-header__tagline">BY DISHA • HANDLOOM</span>
+    </div>
+
+    <nav class="taaga-header__nav" aria-label="Main Navigation">
+      <a href="#catalog" class="taaga-header__nav-link">Jamdani Weaves</a>
+      <a href="#catalog" class="taaga-header__nav-link">Chanderi Silks</a>
+      <a href="#catalog" class="taaga-header__nav-link">Pure Zari Kanjeevaram</a>
+      <a href="#heritage" class="taaga-header__nav-link">Our Weavers</a>
+    </nav>
+
+    <div class="taaga-header__actions">
+      <!-- Search Icon -->
+      <a href="#catalog" class="taaga-header__nav-link" aria-label="Search" style="padding: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </a>
+
+      <!-- Frictionless Cart Trigger -->
+      <button 
+        type="button" 
+        class="taaga-header__cart-trigger" 
+        id="cart-drawer-trigger" 
+        aria-label="Open shopping bag"
+        aria-controls="cart-drawer"
+        aria-expanded="false"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="taaga-header__cart-count" id="cart-icon-bubble-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="MainContent" role="main">
+    <!-- ========================================================================
+         2. HERO SECTION: GSAP CANVAS VIDEO SCRUB (180 Frames Sequence)
+         ======================================================================== -->
+    <section 
+      id="HeroVideoScrub-main" 
+      class="hero-scrub-section"
+      data-hero-video-scrub
+      data-frame-count="180"
+      data-preload-count="20"
+      data-pad-length="4"
+      data-url-template="./assets/frames/frame_{index}.webp"
+      data-worker-url="./assets/frame-loader-worker.js"
+      data-pin-duration="+=300%"
+      data-scrub-smoothness="0.5"
+    >
+      <div class="hero-scrub-container">
+        <!-- Pinned HTML5 Canvas for Video Frame Scrub -->
+        <canvas class="hero-scrub-canvas" aria-label="Taaga by Disha handloom saree draping sequence"></canvas>
+
+        <!-- Radial Vignette Overlay -->
+        <div class="hero-scrub-overlay" aria-hidden="true"></div>
+
+        <!-- Typography & Content Overlay -->
+        <div class="hero-scrub-content">
+          <div class="hero-scrub__badge">
+            <span class="hero-scrub__badge-dot" aria-hidden="true"></span>
+            <span>Artisanal Edition 2026 • Handwoven Heritage</span>
+          </div>
+
+          <h1 class="hero-title hero-scrub__title">
+            Taaga by Disha <br><em>The Poetics of Handloom</em>
+          </h1>
+
+          <p class="hero-scrub__description">
+            Each saree is an unfurling narrative of master weavers, pure mulberry silk, and hand-spun zari threads conceived in Bengal, Varanasi, and Maheshwar.
+          </p>
+
+          <div class="hero-scrub__actions">
+            <a href="#catalog" class="btn-primary-teal">
+              <span>Explore The Weaves</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="#heritage" class="btn-secondary-outline">
+              <span>The Artisan Atelier</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Scroll Hint -->
+        <div class="hero-scrub__scroll-hint" aria-hidden="true">
+          <span class="hero-scrub__scroll-line"></span>
+          <span>Scroll To Unfurl</span>
+        </div>
+
+        <!-- Preload Status HUD -->
+        <div class="hero-scrub__loader" aria-live="polite">
+          <div class="hero-scrub__spinner" aria-hidden="true"></div>
+          <span>Calibrating Weave</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         2.5 CIRCULAR STORY REELS: THE HANDLOOM CHRONICLES
+         ======================================================================== -->
+    <section class="story-reels-section" aria-label="Artisan Stories &amp; Chronicles">
+      <div class="story-reels-container">
+        <button type="button" class="story-reel-item" data-story-title="The 160-Hour Pit Loom Ritual" data-story-desc="Inside Murshidabad's heritage clusters where master weavers shuttle gossamer mulberry threads into ethereal Jamdani motifs." data-story-craft="Bengal Heritage Guild" data-story-media="./assets/catalog/saree-01-drape.webp" data-story-link="#catalog">
+          <div class="story-reel-avatar-wrap">
+            <div class="story-reel-avatar-inner">
+              <img src="./assets/catalog/saree-01-drape.webp" alt="Bengal Pit Looms" class="story-reel-img" loading="lazy">
+            </div>
+            <span class="story-reel-badge">★</span>
+          </div>
+          <span class="story-reel-label">Bengal Looms</span>
+        </button>
+
+        <button type="button" class="story-reel-item" data-story-title="Royal Bridal Trousseau Edits" data-story-desc="Heavy Kanjeevaram silks interlocked with authentic Korvai techniques and 24K electroplated gold zari borders." data-story-craft="Kanchipuram Atelier" data-story-media="./assets/catalog/saree-04-drape.webp" data-story-link="#catalog">
+          <div class="story-reel-avatar-wrap">
+            <div class="story-reel-avatar-inner">
+              <img src="./assets/catalog/saree-04-drape.webp" alt="Bridal Trousseau" class="story-reel-img" loading="lazy">
+            </div>
+            <span class="story-reel-badge">★</span>
+          </div>
+          <span class="story-reel-label">Bridal Edit</span>
+        </button>
+
+        <button type="button" class="story-reel-item" data-story-title="The Authentic Kadwa Needle Weave" data-story-desc="Each Kadwa buti is individually shuttled by hand in Varanasi with zero loose floats on the reverse side." data-story-craft="Varanasi Guild" data-story-media="./assets/catalog/saree-02-drape.webp" data-story-link="#catalog">
+          <div class="story-reel-avatar-wrap">
+            <div class="story-reel-avatar-inner">
+              <img src="./assets/catalog/saree-02-drape.webp" alt="Kadwa Zari Guide" class="story-reel-img" loading="lazy">
+            </div>
+            <span class="story-reel-badge">★</span>
+          </div>
+          <span class="story-reel-label">Kadwa Zari</span>
+        </button>
+
+        <button type="button" class="story-reel-item" data-story-title="Chanderi Shimmer &amp; Gold Tissue" data-story-desc="Spun with sheer silk warps and gossamer cotton wefts, reflecting gentle diffused luminosity in evening lights." data-story-craft="Chanderi Cluster" data-story-media="./assets/catalog/saree-03-drape.webp" data-story-link="#catalog">
+          <div class="story-reel-avatar-wrap">
+            <div class="story-reel-avatar-inner">
+              <img src="./assets/catalog/saree-03-drape.webp" alt="Chanderi Tissue" class="story-reel-img" loading="lazy">
+            </div>
+            <span class="story-reel-badge">★</span>
+          </div>
+          <span class="story-reel-label">Chanderi Silk</span>
+        </button>
+
+        <button type="button" class="story-reel-item" data-story-title="Organic Forest Tussar Textures" data-story-desc="Rich, textured golden filaments reeled from wild forest cocoons by indigenous weaver collectives in Bhagalpur." data-story-craft="Bhagalpur Collective" data-story-media="./assets/catalog/saree-05-drape.webp" data-story-link="#catalog">
+          <div class="story-reel-avatar-wrap">
+            <div class="story-reel-avatar-inner">
+              <img src="./assets/catalog/saree-05-drape.webp" alt="Wild Tussar" class="story-reel-img" loading="lazy">
+            </div>
+            <span class="story-reel-badge">★</span>
+          </div>
+          <span class="story-reel-label">Wild Tussar</span>
+        </button>
+
+        <button type="button" class="story-reel-item" data-story-title="Maheshwar Reversible Borders" data-story-desc="Ancestral Narmada river inspired borders that drape seamlessly from either side with fluid grace." data-story-craft="Maheshwar Fort Guild" data-story-media="./assets/catalog/saree-06-drape.webp" data-story-link="#catalog">
+          <div class="story-reel-avatar-wrap">
+            <div class="story-reel-avatar-inner">
+              <img src="./assets/catalog/saree-06-drape.webp" alt="Maheshwari Borders" class="story-reel-img" loading="lazy">
+            </div>
+            <span class="story-reel-badge">★</span>
+          </div>
+          <span class="story-reel-label">Reversible</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3. PRODUCT CATALOG: MOBILE-FIRST 2-COL TO 3-COL DESKTOP GRID
+         ======================================================================== -->
+    <section id="catalog" class="catalog-section" aria-labelledby="catalog-heading">
+      <div class="catalog-container">
+        
+        <!-- Section Header with Extreme Negative Space -->
+        <header class="catalog-header">
+          <span class="sub-title">Curated Autumn Archive</span>
+          <div class="catalog-meta">
+            <h2 id="catalog-heading" class="section-title">
+              The Handloom Sanctuary
+            </h2>
+            <p style="max-width: 520px; color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.6;">
+              Woven upon ancestral pit looms across Bengal, Varanasi, and Maheshwar. Each creation represents over 120 hours of manual shuttling, honoring singular artisan lineage.
+            </p>
+          </div>
+        </header>
+
+        <!-- Curated By Occasion Filter Tabs -->
+        <div class="occasion-tabs-wrap" role="tablist" aria-label="Curated Occasion Filters">
+          <button type="button" class="occasion-tab-btn is-active" data-occasion-filter="all">All Heirlooms (6)</button>
+          <button type="button" class="occasion-tab-btn" data-occasion-filter="bridal">Bridal Trousseau</button>
+          <button type="button" class="occasion-tab-btn" data-occasion-filter="festive">Festive Heritage</button>
+          <button type="button" class="occasion-tab-btn" data-occasion-filter="cocktail">Evening Cocktail</button>
+          <button type="button" class="occasion-tab-btn" data-occasion-filter="daywear">Airy Luxury</button>
+        </div>
+
+        <!-- The 2-Column Mobile, 3-Column Desktop Grid (Strict 4:5 Aspect Ratio) -->
+        <div class="product-grid" id="product-grid-container">
+          
+          <!-- Product Card 1: Surya Mukhi Jamdani -->
+          <article class="product-card" data-product-id="saree-01" data-occasion="festive bridal" data-occasion="festive bridal" data-occasion="festive bridal">
+            <div class="product-card__media-wrap">
+              <img 
+                src="./assets/catalog/saree-01-folded.webp" 
+                alt="Surya Mukhi Jamdani Saree - Folded Fabric View" 
+                class="product-card__image product-card__image--folded"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <img 
+                src="./assets/catalog/saree-01-drape.webp" 
+                alt="Surya Mukhi Jamdani Saree - AI Model Drape View" 
+                class="product-card__image product-card__image--drape"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <span class="product-card__badge">Handloom Jamdani</span>
+              
+              <div class="product-card__actions">
+                <button 
+                  type="button" 
+                  class="btn-card-inspect" 
+                  data-open-zoom-inspect
+                  data-title="Surya Mukhi Jamdani Saree"
+                  data-craft="Bengal Pit Loom • 160 Hours"
+                  data-zoom-src="./assets/catalog/saree-01-drape.webp"
+                  aria-label="Inspect fabric weave in 2.5x high resolution"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect</span>
+                </button>
+                <button 
+                  type="button" 
+                  class="btn-card-add" 
+                  data-quick-add
+                  data-variant-id="saree-01"
+                  data-title="Surya Mukhi Jamdani Saree"
+                  data-price="3450000"
+                  data-image="./assets/catalog/saree-01-folded.webp"
+                  data-craft="Bengal Pit Loom • 160 Hours"
+                  aria-label="Add Surya Mukhi Jamdani Saree to bag"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>Add To Bag</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card__details">
+              <span class="product-card__craft-origin">Bengal Pit Loom • 160 Hours</span>
+              <h3 class="product-card__title"><a href="#catalog">Surya Mukhi Jamdani Saree</a></h3>
+              <div class="product-card__price-row">
+                <span class="product-card__price">₹34,500</span>
+                <span class="product-card__price--compare">₹38,000</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 2: Neelambari Kora Silk -->
+          <article class="product-card" data-product-id="saree-02" data-occasion="bridal cocktail" data-occasion="bridal cocktail" data-occasion="bridal cocktail">
+            <div class="product-card__media-wrap">
+              <img 
+                src="./assets/catalog/saree-02-folded.webp" 
+                alt="Neelambari Kora Silk Saree - Folded Fabric View" 
+                class="product-card__image product-card__image--folded"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <img 
+                src="./assets/catalog/saree-02-drape.webp" 
+                alt="Neelambari Kora Silk Saree - AI Model Drape View" 
+                class="product-card__image product-card__image--drape"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <span class="product-card__badge">Pure Mulberry Silk</span>
+              
+              <div class="product-card__actions">
+                <button 
+                  type="button" 
+                  class="btn-card-inspect" 
+                  data-open-zoom-inspect
+                  data-title="Neelambari Kora Silk Saree"
+                  data-craft="Varanasi Guild • Zari Kadwa"
+                  data-zoom-src="./assets/catalog/saree-02-drape.webp"
+                  aria-label="Inspect fabric weave in 2.5x high resolution"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect</span>
+                </button>
+                <button 
+                  type="button" 
+                  class="btn-card-add" 
+                  data-quick-add
+                  data-variant-id="saree-02"
+                  data-title="Neelambari Kora Silk Saree"
+                  data-price="4200000"
+                  data-image="./assets/catalog/saree-02-folded.webp"
+                  data-craft="Varanasi Guild • Zari Kadwa"
+                  aria-label="Add Neelambari Kora Silk Saree to bag"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>Add To Bag</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card__details">
+              <span class="product-card__craft-origin">Varanasi Guild • Zari Kadwa</span>
+              <h3 class="product-card__title"><a href="#catalog">Neelambari Kora Silk Saree</a></h3>
+              <div class="product-card__price-row">
+                <span class="product-card__price">₹42,000</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 3: Maitree Chanderi Tissue -->
+          <article class="product-card" data-product-id="saree-03" data-occasion="cocktail daywear" data-occasion="cocktail daywear" data-occasion="cocktail daywear">
+            <div class="product-card__media-wrap">
+              <img 
+                src="./assets/catalog/saree-03-folded.webp" 
+                alt="Maitree Chanderi Tissue Saree - Folded Fabric View" 
+                class="product-card__image product-card__image--folded"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <img 
+                src="./assets/catalog/saree-03-drape.webp" 
+                alt="Maitree Chanderi Tissue Saree - AI Model Drape View" 
+                class="product-card__image product-card__image--drape"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <span class="product-card__badge">Gold & Silver Zari</span>
+              
+              <div class="product-card__actions">
+                <button 
+                  type="button" 
+                  class="btn-card-inspect" 
+                  data-open-zoom-inspect
+                  data-title="Maitree Chanderi Tissue Saree"
+                  data-craft="Chanderi Cluster • Handwoven"
+                  data-zoom-src="./assets/catalog/saree-03-drape.webp"
+                  aria-label="Inspect fabric weave in 2.5x high resolution"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect</span>
+                </button>
+                <button 
+                  type="button" 
+                  class="btn-card-add" 
+                  data-quick-add
+                  data-variant-id="saree-03"
+                  data-title="Maitree Chanderi Tissue Saree"
+                  data-price="2890000"
+                  data-image="./assets/catalog/saree-03-folded.webp"
+                  data-craft="Chanderi Cluster • Handwoven"
+                  aria-label="Add Maitree Chanderi Tissue Saree to bag"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>Add To Bag</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card__details">
+              <span class="product-card__craft-origin">Chanderi Cluster • Handwoven</span>
+              <h3 class="product-card__title"><a href="#catalog">Maitree Chanderi Tissue Saree</a></h3>
+              <div class="product-card__price-row">
+                <span class="product-card__price">₹28,900</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 4: Raktambari Kanjeevaram -->
+          <article class="product-card" data-product-id="saree-04" data-occasion="bridal festive" data-occasion="bridal festive" data-occasion="bridal festive">
+            <div class="product-card__media-wrap">
+              <img 
+                src="./assets/catalog/saree-04-folded.webp" 
+                alt="Raktambari Kanjeevaram Saree - Folded Fabric View" 
+                class="product-card__image product-card__image--folded"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <img 
+                src="./assets/catalog/saree-04-drape.webp" 
+                alt="Raktambari Kanjeevaram Saree - AI Model Drape View" 
+                class="product-card__image product-card__image--drape"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <span class="product-card__badge">Korvai Hand-interlocked</span>
+              
+              <div class="product-card__actions">
+                <button 
+                  type="button" 
+                  class="btn-card-inspect" 
+                  data-open-zoom-inspect
+                  data-title="Raktambari Kanjeevaram Saree"
+                  data-craft="Kanchipuram • Pure Mulberry"
+                  data-zoom-src="./assets/catalog/saree-04-drape.webp"
+                  aria-label="Inspect fabric weave in 2.5x high resolution"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect</span>
+                </button>
+                <button 
+                  type="button" 
+                  class="btn-card-add" 
+                  data-quick-add
+                  data-variant-id="saree-04"
+                  data-title="Raktambari Kanjeevaram Saree"
+                  data-price="5800000"
+                  data-image="./assets/catalog/saree-04-folded.webp"
+                  data-craft="Kanchipuram • Pure Mulberry"
+                  aria-label="Add Raktambari Kanjeevaram Saree to bag"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>Add To Bag</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card__details">
+              <span class="product-card__craft-origin">Kanchipuram • Pure Mulberry</span>
+              <h3 class="product-card__title"><a href="#catalog">Raktambari Kanjeevaram Saree</a></h3>
+              <div class="product-card__price-row">
+                <span class="product-card__price">₹58,000</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 5: Dhaneshwari Tussar Silk -->
+          <article class="product-card" data-product-id="saree-05" data-occasion="festive daywear" data-occasion="festive daywear" data-occasion="festive daywear">
+            <div class="product-card__media-wrap">
+              <img 
+                src="./assets/catalog/saree-05-folded.webp" 
+                alt="Dhaneshwari Tussar Silk Saree - Folded Fabric View" 
+                class="product-card__image product-card__image--folded"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <img 
+                src="./assets/catalog/saree-05-drape.webp" 
+                alt="Dhaneshwari Tussar Silk Saree - AI Model Drape View" 
+                class="product-card__image product-card__image--drape"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <span class="product-card__badge">Wild Organic Tussar</span>
+              
+              <div class="product-card__actions">
+                <button 
+                  type="button" 
+                  class="btn-card-inspect" 
+                  data-open-zoom-inspect
+                  data-title="Dhaneshwari Tussar Silk Saree"
+                  data-craft="Bhagalpur Weavers Collective"
+                  data-zoom-src="./assets/catalog/saree-05-drape.webp"
+                  aria-label="Inspect fabric weave in 2.5x high resolution"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect</span>
+                </button>
+                <button 
+                  type="button" 
+                  class="btn-card-add" 
+                  data-quick-add
+                  data-variant-id="saree-05"
+                  data-title="Dhaneshwari Tussar Silk Saree"
+                  data-price="2450000"
+                  data-image="./assets/catalog/saree-05-folded.webp"
+                  data-craft="Bhagalpur Weavers Collective"
+                  aria-label="Add Dhaneshwari Tussar Silk Saree to bag"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>Add To Bag</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card__details">
+              <span class="product-card__craft-origin">Bhagalpur Weavers Collective</span>
+              <h3 class="product-card__title"><a href="#catalog">Dhaneshwari Tussar Silk Saree</a></h3>
+              <div class="product-card__price-row">
+                <span class="product-card__price">₹24,500</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 6: Alaknanda Maheshwari Silk-Cotton -->
+          <article class="product-card" data-product-id="saree-06" data-occasion="daywear cocktail" data-occasion="daywear cocktail" data-occasion="daywear cocktail">
+            <div class="product-card__media-wrap">
+              <img 
+                src="./assets/catalog/saree-06-folded.webp" 
+                alt="Alaknanda Maheshwari Silk-Cotton - Folded Fabric View" 
+                class="product-card__image product-card__image--folded"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <img 
+                src="./assets/catalog/saree-06-drape.webp" 
+                alt="Alaknanda Maheshwari Silk-Cotton - AI Model Drape View" 
+                class="product-card__image product-card__image--drape"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                width="800"
+                height="1000"
+              >
+              <span class="product-card__badge">Narmada Reversible Border</span>
+              
+              <div class="product-card__actions">
+                <button 
+                  type="button" 
+                  class="btn-card-inspect" 
+                  data-open-zoom-inspect
+                  data-title="Alaknanda Maheshwari Silk-Cotton"
+                  data-craft="Maheshwar Fort Guild"
+                  data-zoom-src="./assets/catalog/saree-06-drape.webp"
+                  aria-label="Inspect fabric weave in 2.5x high resolution"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect</span>
+                </button>
+                <button 
+                  type="button" 
+                  class="btn-card-add" 
+                  data-quick-add
+                  data-variant-id="saree-06"
+                  data-title="Alaknanda Maheshwari Silk-Cotton"
+                  data-price="1980000"
+                  data-image="./assets/catalog/saree-06-folded.webp"
+                  data-craft="Maheshwar Fort Guild"
+                  aria-label="Add Alaknanda Maheshwari Silk-Cotton to bag"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <span>Add To Bag</span>
+                </button>
+              </div>
+            </div>
+            <div class="product-card__details">
+              <span class="product-card__craft-origin">Maheshwar Fort Guild</span>
+              <h3 class="product-card__title"><a href="#catalog">Alaknanda Maheshwari Silk-Cotton</a></h3>
+              <div class="product-card__price-row">
+                <span class="product-card__price">₹19,800</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         4. PDP TACTILE ZOOM & TEXTILE ATELIER SHOWCASE
+         ======================================================================== -->
+    <section id="heritage" class="catalog-section" style="border-top: 1px solid var(--color-rust-border); background-color: var(--color-rust-surface);">
+      <div class="catalog-container">
+        <header class="catalog-header" style="text-align: center; align-items: center;">
+          <span class="sub-title">High-Resolution Textile Atelier</span>
+          <h2 class="section-title">Tactile Zoom Micro-Interactions</h2>
+          <p style="max-width: 620px; color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.6; text-align: center;">
+            Glide cursor slowly across the AI-rendered drape to inspect authentic handspun warp &amp; weft, electroplated gold zari threads, and intricate pallu motifs in 2.5× slow-ease magnification without pixelation.
+          </p>
+        </header>
+
+        <div style="max-width: 520px; width: 100%; margin: 2rem auto 0 auto;">
+          <!-- 4:5 High-Res Tactile Zoom Viewport -->
+          <div 
+            class="tactile-zoom-stage" 
+            id="pdp-demo-zoom-stage" 
+            data-tactile-zoom 
+            data-zoom-scale="2.5"
+            tabindex="0"
+            role="region"
+            aria-label="Interactive fabric texture zoom. Glide cursor to inspect silk weave and zari borders."
+          >
+            <img 
+              id="pdp-demo-main-img"
+              class="tactile-zoom-img" 
+              src="./assets/catalog/saree-01-drape.webp" 
+              alt="Surya Mukhi Jamdani Saree - Tactile Weave Inspection"
+              loading="lazy"
+              fetchpriority="low"
+              width="1200"
+              height="1500"
+            >
+            <div class="tactile-zoom-hud" aria-hidden="true">
+              <span class="tactile-zoom-hud__pill">2.5× High-Def Weave Zoom</span>
+              <span class="tactile-zoom-hud__coords" data-zoom-coords>X: 50% | Y: 50%</span>
+            </div>
+          </div>
+
+          <!-- Perspective Swatches -->
+          <div class="pdp-zoom-modal__swatches" style="margin-top: 1.25rem; justify-content: center;">
+            <button 
+              type="button" 
+              class="pdp-zoom-modal__swatch is-active" 
+              onclick="document.getElementById('pdp-demo-main-img').src='./assets/catalog/saree-01-drape.webp'; this.parentElement.querySelectorAll('.pdp-zoom-modal__swatch').forEach(b => b.classList.remove('is-active')); this.classList.add('is-active'); document.getElementById('pdp-demo-zoom-stage').__zoomInstance?.reset();"
+            >
+              Model Drape (AI)
+            </button>
+            <button 
+              type="button" 
+              class="pdp-zoom-modal__swatch" 
+              onclick="document.getElementById('pdp-demo-main-img').src='./assets/catalog/saree-01-folded.webp'; this.parentElement.querySelectorAll('.pdp-zoom-modal__swatch').forEach(b => b.classList.remove('is-active')); this.classList.add('is-active'); document.getElementById('pdp-demo-zoom-stage').__zoomInstance?.reset();"
+            >
+              Artisanal Folded Saree
+            </button>
+            <button 
+              type="button" 
+              class="pdp-zoom-modal__swatch" 
+              onclick="document.getElementById('pdp-demo-main-img').src='./assets/catalog/saree-02-drape.webp'; this.parentElement.querySelectorAll('.pdp-zoom-modal__swatch').forEach(b => b.classList.remove('is-active')); this.classList.add('is-active'); document.getElementById('pdp-demo-zoom-stage').__zoomInstance?.reset();"
+            >
+              Neelambari Drape
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3.5 INTERACTIVE "SHOP THE LOOK" EDITORIAL HOTSPOT CANVAS
+         ======================================================================== -->
+    <section class="shop-the-look-section" id="shop-the-look" aria-labelledby="stl-heading">
+      <div class="shop-the-look-grid">
+        <div class="hotspot-canvas-wrap">
+          <img src="./assets/catalog/saree-01-drape.webp" alt="Shop The Trousseau Look: Surya Mukhi Jamdani" class="hotspot-canvas-img" loading="lazy">
+          
+          <button type="button" class="hotspot-pin" style="top: 48%; left: 42%;" data-x="42" data-y="48" data-item-title="Surya Mukhi Jamdani Saree" data-item-price="₹34,500" data-variant-id="saree-01" data-item-image="./assets/catalog/saree-01-folded.webp" aria-label="Inspect Surya Mukhi Saree">
+            <span class="hotspot-pin-pulse"></span>
+            <span class="hotspot-pin-core">•</span>
+          </button>
+
+          <button type="button" class="hotspot-pin" style="top: 26%; left: 52%;" data-x="52" data-y="26" data-item-title="Mulberry Raw Silk Tailored Blouse" data-item-price="Complimentary (Code: ATELIER2026)" data-variant-id="saree-01" aria-label="Inspect Mulberry Blouse">
+            <span class="hotspot-pin-pulse"></span>
+            <span class="hotspot-pin-core">•</span>
+          </button>
+
+          <button type="button" class="hotspot-pin" style="top: 68%; left: 32%;" data-x="32" data-y="68" data-item-title="Handspun 24K Zari Pallu Tassels" data-item-price="Hand-knotted by Guild Masters" data-variant-id="saree-01" aria-label="Inspect Pallu Tassels">
+            <span class="hotspot-pin-pulse"></span>
+            <span class="hotspot-pin-core">•</span>
+          </button>
+
+          <div class="hotspot-popover" id="hotspot-popover">
+            <h4 class="hotspot-popover__title">Surya Mukhi Jamdani Saree</h4>
+            <div class="hotspot-popover__price">₹34,500</div>
+            <button type="button" class="hotspot-popover__btn">Add Piece To Bag</button>
+          </div>
+        </div>
+
+        <div class="shop-the-look-content">
+          <span class="sub-title">Editorial Curation • Autumn Edition</span>
+          <h2 id="stl-heading" class="section-title" style="font-size: 2.25rem; margin-top: 0.5rem;">
+            The Autumn Sun Solstice Look
+          </h2>
+          <p style="color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.7; margin: 1.25rem 0 1.75rem 0;">
+            A masterclass in textural dialogue: the ochre warmth of raw Bengal mulberry silk harmonizes with vibrant peacock teal borders. Styled with custom-measured blouse piece tailored in our Calcutta atelier.
+          </p>
+
+          <div style="background: var(--color-rust-deepest); border: 1px solid var(--color-rust-border); border-radius: 6px; padding: 1.25rem; margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+              <span style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-gold-zari); font-weight: 600;">Complete Trousseau Curation</span>
+              <span style="font-size: 1.125rem; color: #fff; font-weight: 600;">₹34,500</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8125rem; color: var(--color-rust-muted); display: flex; flex-direction: column; gap: 0.35rem;">
+              <li>✓ Surya Mukhi Jamdani Saree (160h Pit Loom Weave)</li>
+              <li>✓ Complimentary Handloom Raw Silk Blouse Piece (Worth ₹4,500)</li>
+              <li>✓ Hand-knotted Zari Tassels &amp; Fall-Pico Finishing Included</li>
+              <li>✓ Insured Express Courier with Silk Mark Authenticity Seal</li>
+            </ul>
+          </div>
+
+          <button type="button" class="btn-primary-teal" id="btn-shop-trousseau-bundle" style="width: 100%; padding: 1.15rem; font-size: 0.9375rem;">
+            <span>Shop Complete Trousseau Look (1-Click)</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3.6 TAAGA PRIVILEGE CLUB (VIP PATRON MEMBERSHIP MODULE)
+         ======================================================================== -->
+    <section class="privilege-club-section" id="privilege-club" aria-labelledby="privilege-heading">
+      <div class="privilege-card-wrap">
+        <div style="display: flex; justify-content: center;">
+          <div class="privilege-card-visual" role="img" aria-label="Taaga Privilege Club Gold Card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <span style="font-family: var(--font-serif); font-size: 1.25rem; letter-spacing: 0.15em; color: var(--color-gold-zari); font-weight: 700;">TAAGA</span>
+              <div class="privilege-card-chip"></div>
+            </div>
+            <div>
+              <div style="font-family: monospace; font-size: 1rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.7); margin-bottom: 0.5rem;">
+                7204 •••• •••• 2026
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                  <div style="font-size: 0.625rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-rust-muted);">Cardholder</div>
+                  <div style="font-size: 0.8125rem; color: #fff; font-weight: 600; letter-spacing: 0.05em;">ESTEEMED PATRON</div>
+                </div>
+                <div>
+                  <div style="font-size: 0.625rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-rust-muted);">Privilege Tier</div>
+                  <div style="font-size: 0.8125rem; color: var(--color-gold-zari); font-weight: 600;">GOLD ATELIER</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span class="sub-title">Patron Inner Circle</span>
+          <h2 id="privilege-heading" class="section-title" style="font-size: 2.25rem; margin-top: 0.5rem;">
+            The Taaga Privilege Pass
+          </h2>
+          <p style="color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.6; margin: 1rem 0;">
+            Directly supporting ancestral handloom pit looms. Become an enrolled patron to unlock bespoke atelier services on all acquisitions.
+          </p>
+
+          <ul class="privilege-perks-list">
+            <li class="privilege-perk-item">
+              <svg class="privilege-perk-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Instant 10% Welcome Credit</strong> applied directly across all handloom sarees (Code: <code>ATELIER2026</code>)</span>
+            </li>
+            <li class="privilege-perk-item">
+              <svg class="privilege-perk-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Bespoke Fall, Pico &amp; Blouse Tailoring</strong> complimentary on all orders</span>
+            </li>
+            <li class="privilege-perk-item">
+              <svg class="privilege-perk-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>48-Hour Early Access</strong> to limited 1-of-1 master weaver archival drops</span>
+            </li>
+            <li class="privilege-perk-item">
+              <svg class="privilege-perk-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Private WhatsApp Concierge</strong> with Disha &amp; master draping stylists</span>
+            </li>
+          </ul>
+
+          <button type="button" class="btn-primary-teal" id="btn-claim-privilege-pass" style="padding: 1rem 2rem; font-size: 0.875rem;">
+            <span>Claim 10% Privilege Pass (Instant Unlock)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3.7 EDITORIAL PRESS & CRITICS MARQUEE
+         ======================================================================== -->
+    <section class="press-marquee-section" aria-label="Press &amp; Citations">
+      <div class="press-marquee-track">
+        <div class="press-item">
+          <span class="press-logo-text">VOGUE</span>
+          <span class="press-quote">“Resurrecting endangered pit-loom traditions with haute-couture reverence.”</span>
+        </div>
+        <div class="press-item">
+          <span class="press-logo-text">HARPER'S BAZAAR</span>
+          <span class="press-quote">“Where ancestral Indian craftsmanship meets contemporary digital flagships.”</span>
+        </div>
+        <div class="press-item">
+          <span class="press-logo-text">ELLE</span>
+          <span class="press-quote">“The definitive sanctuary for pure handloom silk connoisseurs.”</span>
+        </div>
+        <div class="press-item">
+          <span class="press-logo-text">ARCHITECTURAL DIGEST</span>
+          <span class="press-quote">“Wearable art woven with centuries of generational patience.”</span>
+        </div>
+        <div class="press-item">
+          <span class="press-logo-text">THE HINDU LIFESTYLE</span>
+          <span class="press-quote">“A breath of pure oxygen in an era of synthetic fast fashion.”</span>
+        </div>
+        <div class="press-item">
+          <span class="press-logo-text">VOGUE</span>
+          <span class="press-quote">“Resurrecting endangered pit-loom traditions with haute-couture reverence.”</span>
+        </div>
+        <div class="press-item">
+          <span class="press-logo-text">HARPER'S BAZAAR</span>
+          <span class="press-quote">“Where ancestral Indian craftsmanship meets contemporary digital flagships.”</span>
+        </div>
+        <div class="press-item">
+          <span class="press-logo-text">ELLE</span>
+          <span class="press-quote">“The definitive sanctuary for pure handloom silk connoisseurs.”</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3.8 CUSTOMER LOVE & UNBOXING REVIEWS
+         ======================================================================== -->
+    <section class="reviews-section" id="reviews" aria-labelledby="reviews-heading">
+      <div class="catalog-container">
+        <header class="catalog-header" style="text-align: center; align-items: center;">
+          <span class="sub-title">Patron Testimonials</span>
+          <h2 id="reviews-heading" class="section-title">Voices From The Sanctuary</h2>
+          <p style="max-width: 540px; color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.6; text-align: center;">
+            Over 2,400 heirlooms delivered to patrons across 18 countries. Every parcel is Silk Mark verified, scented with natural vetiver root, and wrapped in organic muslin.
+          </p>
+        </header>
+
+        <div class="reviews-carousel-track">
+          <article class="review-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div class="review-stars">★★★★★</div>
+                <span class="review-verified-badge">✓ Silk Mark Verified</span>
+              </div>
+              <p style="font-size: 0.9375rem; color: #fff; line-height: 1.6; font-style: italic;">
+                “The weight and fall of the Surya Mukhi Jamdani is unlike anything you find in commercial stores. The fabric breathes like pure poetry, and the tactile zoom on the site was 100% true to real life.”
+              </p>
+            </div>
+            <div style="border-top: 1px solid rgba(68, 42, 27, 0.6); padding-top: 0.875rem;">
+              <div style="font-weight: 600; color: #fff; font-size: 0.875rem;">Dr. Radhika Sen</div>
+              <div style="font-size: 0.75rem; color: var(--color-rust-muted);">South Kensington, London • Surya Mukhi Jamdani</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div class="review-stars">★★★★★</div>
+                <span class="review-verified-badge">✓ Silk Mark Verified</span>
+              </div>
+              <p style="font-size: 0.9375rem; color: #fff; line-height: 1.6; font-style: italic;">
+                “I wore the Neelambari Kora Silk to my daughter's sangeet. The contrast between the midnight blue and pure kadwa zari was breathtaking. The concierge service over WhatsApp was so reassuring.”
+              </p>
+            </div>
+            <div style="border-top: 1px solid rgba(68, 42, 27, 0.6); padding-top: 0.875rem;">
+              <div style="font-weight: 600; color: #fff; font-size: 0.875rem;">Meenakshi Sundaram</div>
+              <div style="font-size: 0.75rem; color: var(--color-rust-muted);">Alwarpet, Chennai • Neelambari Kora Silk</div>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                <div class="review-stars">★★★★★</div>
+                <span class="review-verified-badge">✓ Silk Mark Verified</span>
+              </div>
+              <p style="font-size: 0.9375rem; color: #fff; line-height: 1.6; font-style: italic;">
+                “The Raktambari Kanjeevaram is a true heirloom piece. The Korvai hand-interlocking is pristine, and the stole gift was such a thoughtful luxury touch. Worth every single rupee.”
+              </p>
+            </div>
+            <div style="border-top: 1px solid rgba(68, 42, 27, 0.6); padding-top: 0.875rem;">
+              <div style="font-weight: 600; color: #fff; font-size: 0.875rem;">Anupama Singhania</div>
+              <div style="font-size: 0.75rem; color: var(--color-rust-muted);">Bandra West, Mumbai • Raktambari Kanjeevaram</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Space -->
+    <footer style="padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--color-rust-border); color: var(--color-rust-muted); font-size: 0.8125rem;">
+      <p style="letter-spacing: 0.14em; text-transform: uppercase;">© 2026 Taaga by Disha. Preserving the Sacred Thread of Indian Handloom.</p>
+    </footer>
+  </main>
+
+  <!-- ========================================================================
+       4. FRICTIONLESS AJAX SLIDE-OUT CART DRAWER
+       ======================================================================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" aria-hidden="true" tabindex="-1"></div>
+
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title" aria-hidden="true">
+    <div class="cart-drawer__header">
+      <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+        <h2 class="cart-drawer__title" id="cart-drawer-title">Shopping Bag</h2>
+        <span style="font-size: 0.8125rem; color: var(--color-rust-muted);">
+          (<span id="cart-drawer-count">0</span> items)
+        </span>
+      </div>
+      <button type="button" class="cart-drawer__close" id="cart-drawer-close" aria-label="Close Shopping Bag">&times;</button>
+    </div>
+
+        <!-- Live Gift Progression Bar -->
+    <div class="cart-gift-bar" id="cart-gift-bar">
+      <div class="cart-gift-bar__msg" id="cart-gift-msg">
+        <span>Add <strong>₹50,000</strong> for a <em>Complimentary Pure Silk Stole</em></span>
+        <span>0%</span>
+      </div>
+      <div class="cart-gift-bar__track">
+        <div class="cart-gift-bar__fill" id="cart-gift-fill"></div>
+      </div>
+    </div>
+    <div class="cart-drawer__body" id="cart-drawer-items" tabindex="0" data-lenis-prevent>
+      <div class="cart-drawer__empty-state" id="cart-empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-rust-muted)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 1rem auto; display: block;" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <p>Your artisanal saree collection is empty.</p>
+        <button type="button" class="btn-primary-teal" id="cart-drawer-shop-btn" style="padding: 0.875rem 1.75rem; font-size: 0.8125rem;">
+          Discover Handloom Silks
+        </button>
+      </div>
+    </div>
+
+    <div class="cart-drawer__footer" id="cart-drawer-footer" style="display: none;">
+      <div class="cart-drawer__perks">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 14 14"></polyline>
+        </svg>
+        <span>Complimentary insured shipping & Silk Mark certified</span>
+      </div>
+
+      <div class="cart-drawer__subtotal-row">
+        <span class="cart-drawer__subtotal-label">Subtotal</span>
+        <span class="cart-drawer__subtotal-amount" id="cart-drawer-subtotal">₹0.00</span>
+      </div>
+
+      <p style="font-size: 0.75rem; color: var(--color-rust-muted); margin-top: -0.5rem;">
+        Taxes and duties calculated at checkout.
+      </p>
+
+      <button type="button" class="btn-primary-teal cart-drawer__checkout-btn" onclick="alert('Proceeding to Shopify Secure Checkout!')">
+        Proceed To Secure Checkout
+      </button>
+    </div>
+  </aside>
+
+  
+  <!-- ========================================================================
+       5. INTERACTIVE STORY REELS MODAL VIEWER
+       ======================================================================== -->
+  <div class="story-modal" id="story-reels-modal" role="dialog" aria-modal="true" aria-label="Story Viewer">
+    <div class="story-modal-card">
+      <img src="" alt="Story media" class="story-modal-media">
+      <div class="story-modal-overlay"></div>
+      <div class="story-modal-header">
+        <div class="story-progress-bar-wrap">
+          <div class="story-progress-seg"><div class="story-progress-fill"></div></div>
+          <div class="story-progress-seg"><div class="story-progress-fill"></div></div>
+          <div class="story-progress-seg"><div class="story-progress-fill"></div></div>
+          <div class="story-progress-seg"><div class="story-progress-fill"></div></div>
+          <div class="story-progress-seg"><div class="story-progress-fill"></div></div>
+          <div class="story-progress-seg"><div class="story-progress-fill"></div></div>
+        </div>
+        <div class="story-header-content">
+          <div class="story-header-profile">
+            <img src="./assets/catalog/saree-01-drape.webp" alt="Avatar" class="story-header-avatar">
+            <span class="story-header-name">Bengal Heritage Guild</span>
+          </div>
+          <button type="button" class="story-modal-close" data-close-story aria-label="Close Story">&times;</button>
+        </div>
+      </div>
+      <div class="story-modal-footer">
+        <h3 class="story-modal-title">The 160-Hour Pit Loom Ritual</h3>
+        <p class="story-modal-desc">Inside Murshidabad heritage clusters where master weavers shuttle gossamer threads.</p>
+        <button type="button" class="story-modal-btn">Explore This Weave</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       6. REAL-TIME PURCHASE PULSE TOAST
+       ======================================================================== -->
+  <div class="purchase-pulse-toast" id="purchase-pulse-toast" role="status" aria-live="polite">
+    <img src="./assets/catalog/saree-01-drape.webp" alt="Purchased Item" class="pulse-img">
+    <div class="pulse-info">
+      <div class="pulse-headline"><strong>Aarohi M.</strong> (New Delhi) acquired <em>Surya Mukhi Jamdani</em></div>
+      <div class="pulse-time">Verified Purchase • 4m ago</div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       7. WHATSAPP VIP CONCIERGE FLOATING BUTTON
+       ======================================================================== -->
+  <a href="https://wa.me/919876543210?text=Hello%20Disha,%20I%20am%20exploring%20Taaga%20artisanal%20handloom%20sarees%20and%20would%20love%20master%20draping%20advice." target="_blank" rel="noopener noreferrer" class="vip-concierge-float" aria-label="Chat with VIP Master Draper on WhatsApp">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+    <span>VIP Styling Concierge</span>
+  </a>
+
+  <!-- Interactive Scripts -->
+  <script src="./assets/hero-video-scrub.js"></script>
+  <script src="./assets/cart-drawer.js"></script>
+  <script src="./assets/taaga-luxury-polish.js"></script>
+</body>
+</html>

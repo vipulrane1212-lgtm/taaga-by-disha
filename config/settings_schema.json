@@ -1,0 +1,33 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Taaga by Disha",
+    "theme_version": "2.0.0",
+    "theme_author": "Taaga Atelier",
+    "theme_documentation_url": "https://taagabydisha.com",
+    "theme_support_url": "https://taagabydisha.com"
+  },
+  {
+    "name": "Colors & Branding",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_rust_base",
+        "label": "Rust Base Background",
+        "default": "#1b110a"
+      },
+      {
+        "type": "color",
+        "id": "color_teal_primary",
+        "label": "Teal Vibrant Accent",
+        "default": "#14b8a6"
+      },
+      {
+        "type": "color",
+        "id": "color_gold_zari",
+        "label": "Heritage Zari Gold",
+        "default": "#c99b53"
+      }
+    ]
+  }
+]

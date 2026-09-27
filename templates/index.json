@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "hero_scrub": {
+      "type": "hero-video-scrub",
+      "settings": {
+        "frame_count": 180,
+        "preload_count": 20,
+        "pad_length": 4,
+        "pin_duration": "+=300%",
+        "scrub_smoothness": 0.5,
+        "badge_text": "Artisanal Edition 2026 \u2022 Handwoven Heritage",
+        "heading": "Taaga by Disha <br><em>The Poetics of Handloom</em>"
+      }
+    },
+    "story_reels": {
+      "type": "story-reels",
+      "settings": {
+        "heading": "Artisan Stories & Chronicles"
+      }
+    },
+    "catalog_grid": {
+      "type": "product-grid",
+      "settings": {
+        "sub_heading": "Curated Autumn Archive",
+        "heading": "The Handloom Sanctuary",
+        "description": "Woven upon ancestral pit looms across Bengal, Varanasi, and Maheshwar. Each creation honors singular artisan lineage.",
+        "products_to_show": 6
+      }
+    },
+    "shop_the_look": {
+      "type": "shop-the-look",
+      "settings": {
+        "sub_heading": "Editorial Curation \u2022 Autumn Edition",
+        "heading": "The Autumn Sun Solstice Look",
+        "description": "A masterclass in textural dialogue."
+      }
+    },
+    "privilege_club": {
+      "type": "privilege-club",
+      "settings": {
+        "sub_heading": "Patron Inner Circle",
+        "heading": "The Taaga Privilege Pass"
+      }
+    },
+    "press_marquee": {
+      "type": "press-marquee",
+      "settings": {}
+    },
+    "reviews_carousel": {
+      "type": "reviews-carousel",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero_scrub",
+    "story_reels",
+    "catalog_grid",
+    "shop_the_look",
+    "privilege_club",
+    "press_marquee",
+    "reviews_carousel"
+  ]
+}

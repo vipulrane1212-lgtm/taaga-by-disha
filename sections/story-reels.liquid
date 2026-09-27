@@ -1,0 +1,75 @@
+<section class="story-reels-section" aria-label="{{ section.settings.heading | escape }}">
+  <div class="story-reels-container">
+    {%- for block in section.blocks -%}
+      <button 
+        type="button" 
+        class="story-reel-item" 
+        data-story-title="{{ block.settings.title | escape }}"
+        data-story-desc="{{ block.settings.description | escape }}"
+        data-story-craft="{{ block.settings.craft_origin | escape }}"
+        data-story-media="{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 800 }}{% else %}./assets/catalog/saree-01-drape.webp{% endif %}"
+        data-story-link="{{ block.settings.link_url | default: '#catalog' }}"
+        {{ block.shopify_attributes }}
+      >
+        <div class="story-reel-avatar-wrap">
+          <div class="story-reel-avatar-inner">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 200 }}" alt="{{ block.settings.title | escape }}" class="story-reel-img" loading="lazy">
+            {%- else -%}
+              <img src="./assets/catalog/saree-01-drape.webp" alt="Story" class="story-reel-img" loading="lazy">
+            {%- endif -%}
+          </div>
+          <span class="story-reel-badge">★</span>
+        </div>
+        <span class="story-reel-label">{{ block.settings.short_label | default: block.settings.title }}</span>
+      </button>
+    {%- else -%}
+      <button type="button" class="story-reel-item" data-story-title="The 160-Hour Pit Loom Ritual" data-story-desc="Inside Murshidabad's heritage clusters." data-story-craft="Bengal Heritage Guild" data-story-media="./assets/catalog/saree-01-drape.webp" data-story-link="#catalog">
+        <div class="story-reel-avatar-wrap">
+          <div class="story-reel-avatar-inner"><img src="./assets/catalog/saree-01-drape.webp" alt="Bengal Looms" class="story-reel-img" loading="lazy"></div>
+          <span class="story-reel-badge">★</span>
+        </div>
+        <span class="story-reel-label">Bengal Looms</span>
+      </button>
+      <button type="button" class="story-reel-item" data-story-title="Royal Bridal Trousseau Edits" data-story-desc="Heavy Kanjeevaram silks." data-story-craft="Kanchipuram Atelier" data-story-media="./assets/catalog/saree-04-drape.webp" data-story-link="#catalog">
+        <div class="story-reel-avatar-wrap">
+          <div class="story-reel-avatar-inner"><img src="./assets/catalog/saree-04-drape.webp" alt="Bridal Trousseau" class="story-reel-img" loading="lazy"></div>
+          <span class="story-reel-badge">★</span>
+        </div>
+        <span class="story-reel-label">Bridal Edit</span>
+      </button>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Story Reels",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Artisan Stories & Chronicles" }
+  ],
+  "blocks": [
+    {
+      "type": "story",
+      "name": "Artisan Story",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Story Avatar Image" },
+        { "type": "text", "id": "short_label", "label": "Avatar Short Label", "default": "Bengal Looms" },
+        { "type": "text", "id": "title", "label": "Story Title", "default": "The 160-Hour Pit Loom Ritual" },
+        { "type": "textarea", "id": "description", "label": "Story Description" },
+        { "type": "text", "id": "craft_origin", "label": "Artisan Guild Origin", "default": "Bengal Heritage Guild" },
+        { "type": "url", "id": "link_url", "label": "Shop CTA Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Story Reels",
+      "blocks": [
+        { "type": "story", "settings": { "short_label": "Bengal Looms", "title": "The 160-Hour Pit Loom Ritual" } },
+        { "type": "story", "settings": { "short_label": "Bridal Edit", "title": "Royal Bridal Trousseau Edits" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

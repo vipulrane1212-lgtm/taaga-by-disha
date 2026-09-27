@@ -1,0 +1,118 @@
+{% comment %}
+  TAAGA BY DISHA - PDP TACTILE ZOOM SNIPPET
+  High-resolution slow-ease zoom feature for Shopify Product Detail Page.
+  Allows customer to inspect AI-rendered weave, zari kadwa, and pallu detail without pixelation.
+{% endcomment %}
+
+{%- liquid
+  assign primary_image = product.featured_image
+  assign drape_image = product.metafields.custom.ai_model_drape | default: product.images[1]
+  assign high_res_zoom = product.metafields.custom.fabric_texture_zoom | default: drape_image | default: primary_image
+-%}
+
+<div class="pdp-tactile-zoom-module" data-pdp-tactile-zoom-module>
+  <!-- Tactile Zoom Stage: Strict 4:5 Aspect Ratio -->
+  <div 
+    class="tactile-zoom-stage" 
+    id="pdp-tactile-zoom-stage" 
+    data-tactile-zoom 
+    data-zoom-scale="2.4"
+    role="region"
+    aria-label="Interactive fabric texture zoom. Glide cursor to inspect silk weave and zari borders."
+    tabindex="0"
+  >
+    <img 
+      id="pdp-tactile-zoom-main-image"
+      class="tactile-zoom-img"
+      src="{{ primary_image | image_url: width: 1200 }}" 
+      data-zoom-src="{{ high_res_zoom | image_url: width: 2000 }}"
+      alt="{{ product.title | escape }} - High Resolution Weave Detail"
+      loading="eager"
+      fetchpriority="high"
+      width="1200"
+      height="1500"
+    >
+
+    <!-- Floating Luxury Inspection HUD -->
+    <div class="tactile-zoom-hud" aria-hidden="true">
+      <span class="tactile-zoom-hud__pill">
+        2.5× High-Res Weave Inspection
+      </span>
+      <span class="tactile-zoom-hud__coords" data-zoom-coords>
+        X: 50% | Y: 50%
+      </span>
+    </div>
+  </div>
+
+  <!-- Perspective Swatches: Folded Fabric vs Model Drape vs Pallu Detail -->
+  <div class="pdp-zoom-modal__swatches" style="margin-top: 1rem; justify-content: center;">
+    {%- if primary_image != blank -%}
+      <button 
+        type="button" 
+        class="pdp-zoom-modal__swatch is-active" 
+        data-switch-view="{{ primary_image | image_url: width: 1200 }}"
+        data-zoom-target="{{ primary_image | image_url: width: 2000 }}"
+      >
+        Folded Fabric
+      </button>
+    {%- endif -%}
+
+    {%- if drape_image != blank -%}
+      <button 
+        type="button" 
+        class="pdp-zoom-modal__swatch" 
+        data-switch-view="{{ drape_image | image_url: width: 1200 }}"
+        data-zoom-target="{{ drape_image | image_url: width: 2000 }}"
+      >
+        Model Drape (AI)
+      </button>
+    {%- endif -%}
+
+    {%- if high_res_zoom != blank and high_res_zoom != drape_image and high_res_zoom != primary_image -%}
+      <button 
+        type="button" 
+        class="pdp-zoom-modal__swatch" 
+        data-switch-view="{{ high_res_zoom | image_url: width: 1200 }}"
+        data-zoom-target="{{ high_res_zoom | image_url: width: 2000 }}"
+      >
+        Zari Pallu Macro
+      </button>
+    {%- endif -%}
+  </div>
+
+  <p style="text-align: center; margin-top: 0.75rem; font-size: 0.75rem; color: var(--color-rust-muted); letter-spacing: 0.08em; text-transform: uppercase;">
+    Silk Mark Certified • 100% Zero-Pixelation Tactile Viewport
+  </p>
+</div>
+
+<script>
+  (function() {
+    function setupPdpSwatches() {
+      var stage = document.getElementById('pdp-tactile-zoom-stage');
+      var mainImg = document.getElementById('pdp-tactile-zoom-main-image');
+      if (!stage || !mainImg) return;
+
+      var swatches = document.querySelectorAll('[data-pdp-tactile-zoom-module] [data-switch-view]');
+      swatches.forEach(function(swatch) {
+        if (swatch.__bound) return;
+        swatch.__bound = true;
+        swatch.addEventListener('click', function() {
+          swatches.forEach(function(s) { s.classList.remove('is-active'); });
+          swatch.classList.add('is-active');
+          var newSrc = swatch.getAttribute('data-switch-view');
+          var newZoom = swatch.getAttribute('data-zoom-target') || newSrc;
+          mainImg.src = newSrc;
+          mainImg.setAttribute('data-zoom-src', newZoom);
+          if (stage.__zoomInstance) stage.__zoomInstance.reset();
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupPdpSwatches);
+    } else {
+      setupPdpSwatches();
+    }
+    document.addEventListener('shopify:section:load', setupPdpSwatches);
+  })();
+</script>

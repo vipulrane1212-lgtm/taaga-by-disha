@@ -1,0 +1,148 @@
+{% comment %}
+  TAAGA BY DISHA - PRODUCT GRID SECTION (PHASE 2)
+  Mobile-First 2-Column Grid scaling to 3-Column on Desktop.
+  Implements 4:5 strict aspect ratio, hover-to-reveal AI model drape,
+  tactile high-res weave inspect trigger, and extreme negative space styling.
+{% endcomment %}
+
+<section id="catalog" class="catalog-section" aria-labelledby="catalog-heading">
+  <div class="catalog-container">
+    
+    <!-- Section Header with Expansive Negative Space -->
+    <header class="catalog-header">
+      <span class="sub-title">{{ section.settings.sub_heading | default: 'Curated Autumn Archive' }}</span>
+      <div class="catalog-meta">
+        <h2 id="catalog-heading" class="section-title">
+          {{ section.settings.heading | default: 'The Handloom Sanctuary' }}
+        </h2>
+        <p style="max-width: 480px; color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.6;">
+          {{ section.settings.description | default: 'Woven upon ancestral pit looms across Bengal, Varanasi, and Maheshwar. Each creation honors singular artisan lineage.' }}
+        </p>
+      </div>
+    </header>
+
+    <!-- Mobile-First Grid: 2-column mobile, 3-column desktop (Strict 4:5 Aspect Ratio Cards) -->
+    <div class="product-grid" id="product-grid-container">
+      {%- assign collection = section.settings.collection -%}
+      {%- if collection != blank and collection.products.size > 0 -%}
+        {%- for product in collection.products limit: section.settings.products_to_show -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Curated Fallback Mock Products: 4:5 Folded Fabric to AI Model Drape Pairs -->
+        {% render 'product-card',
+          card_id: 'taaga-saree-01',
+          card_title: 'Surya Mukhi Jamdani Saree',
+          card_craft: 'Handloom Fine Muslin',
+          card_cluster: 'Bengal Pit Loom • 160 Hours',
+          card_price: 3450000,
+          card_image_folded: './assets/catalog/saree-01-folded.webp',
+          card_image_drape: './assets/catalog/saree-01-drape.webp',
+          card_image: './assets/catalog/saree-01-folded.webp'
+        %}
+
+        {% render 'product-card',
+          card_id: 'taaga-saree-02',
+          card_title: 'Neelambari Kora Silk Saree',
+          card_craft: 'Pure Mulberry Silk',
+          card_cluster: 'Varanasi Guild • Zari Kadwa',
+          card_price: 4200000,
+          card_image_folded: './assets/catalog/saree-02-folded.webp',
+          card_image_drape: './assets/catalog/saree-02-drape.webp',
+          card_image: './assets/catalog/saree-02-folded.webp'
+        %}
+
+        {% render 'product-card',
+          card_id: 'taaga-saree-03',
+          card_title: 'Maitree Chanderi Tissue Saree',
+          card_craft: 'Gold & Silver Zari',
+          card_cluster: 'Chanderi Cluster • Handwoven',
+          card_price: 2890000,
+          card_image_folded: './assets/catalog/saree-03-folded.webp',
+          card_image_drape: './assets/catalog/saree-03-drape.webp',
+          card_image: './assets/catalog/saree-03-folded.webp'
+        %}
+
+        {% render 'product-card',
+          card_id: 'taaga-saree-04',
+          card_title: 'Raktambari Kanjeevaram Saree',
+          card_craft: 'Heavy Silk & Korvai Border',
+          card_cluster: 'Kanchipuram • Korvai Technique',
+          card_price: 5800000,
+          card_image_folded: './assets/catalog/saree-04-folded.webp',
+          card_image_drape: './assets/catalog/saree-04-drape.webp',
+          card_image: './assets/catalog/saree-04-folded.webp'
+        %}
+
+        {% render 'product-card',
+          card_id: 'taaga-saree-05',
+          card_title: 'Dhaneshwari Tussar Silk Saree',
+          card_craft: 'Wild Organic Tussar',
+          card_cluster: 'Bhagalpur Weavers Collective',
+          card_price: 2450000,
+          card_image_folded: './assets/catalog/saree-05-folded.webp',
+          card_image_drape: './assets/catalog/saree-05-drape.webp',
+          card_image: './assets/catalog/saree-05-folded.webp'
+        %}
+
+        {% render 'product-card',
+          card_id: 'taaga-saree-06',
+          card_title: 'Alaknanda Maheshwari Silk-Cotton',
+          card_craft: 'Reversible Narmada Border',
+          card_cluster: 'Maheshwar Fort Guild',
+          card_price: 1980000,
+          card_image_folded: './assets/catalog/saree-06-folded.webp',
+          card_image_drape: './assets/catalog/saree-06-drape.webp',
+          card_image: './assets/catalog/saree-06-folded.webp'
+        %}
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Grid (Mobile-First)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub-title",
+      "default": "Curated Autumn Archive"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Handloom Sanctuary"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Woven upon ancestral pit looms across Bengal, Varanasi, and Maheshwar. Each creation honors singular artisan lineage."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Shopify Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "default": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Grid (Mobile-First)",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

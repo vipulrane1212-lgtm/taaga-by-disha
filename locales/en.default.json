@@ -1,0 +1,18 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Skip to content"
+    }
+  },
+  "cart": {
+    "title": "Shopping Bag",
+    "empty": "Your artisanal saree collection is empty.",
+    "checkout": "Proceed To Secure Checkout"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add To Bag",
+      "inspect": "Inspect"
+    }
+  }
+}
