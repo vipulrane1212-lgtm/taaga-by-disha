@@ -346,6 +346,8 @@ class HeroVideoScrub {
 
     gsap.registerPlugin(ScrollTrigger);
 
+    const header = document.querySelector('.taaga-header');
+
     // Timeline for hero video frame scrub
     const scrubTimeline = gsap.timeline({
       scrollTrigger: {
@@ -368,6 +370,10 @@ class HeroVideoScrub {
         onLeave: () => {
           // Guarantee final maximum frame is painted when pinned scrub completes
           this.renderFrame(this.frameCount - 1, true);
+          if (header) header.classList.add('header--scrolled');
+        },
+        onEnterBack: () => {
+          if (header) header.classList.remove('header--scrolled');
         }
       }
     });
@@ -387,18 +393,6 @@ class HeroVideoScrub {
         ease: 'power1.out',
         duration: 0.35
       }, 0.05);
-    }
-
-    // Connect Header Transition: Toggle .header--scrolled immediately upon scrolling past pinned hero
-    const header = document.querySelector('.taaga-header');
-    if (header) {
-      ScrollTrigger.create({
-        trigger: this.container,
-        start: 'top top',
-        end: this.pinDuration,
-        onLeave: () => header.classList.add('header--scrolled'),
-        onEnterBack: () => header.classList.remove('header--scrolled')
-      });
     }
   }
 

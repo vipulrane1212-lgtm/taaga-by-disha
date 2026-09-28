@@ -191,29 +191,6 @@ button {
   font-weight: 600;
 }
 
-/* ========================================================================
-   HEADER: STICKY TRANSPARENT -> SOLID RUST UPON SCROLL
-   ======================================================================== */
-.taaga-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 84px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 var(--container-padding);
-  background-color: transparent;
-  border-bottom: 1px solid transparent;
-  transition: background-color 450ms var(--transition-smooth),
-              backdrop-filter 450ms var(--transition-smooth),
-              border-color 450ms var(--transition-smooth),
-              box-shadow 450ms var(--transition-smooth),
-              height 350ms var(--transition-smooth);
-}
-
 /* Artisanal Loom Canvas Background Layer */
 .artisanal-canvas-bg {
   position: fixed;
@@ -256,39 +233,66 @@ button {
   }
 }
 
-/* State when scrolled past the hero canvas section */
+/* ========================================================================
+   HEADER: STICKY LUXURY SCRIM -> SOLID RUST UPON SCROLL
+   ======================================================================== */
+.taaga-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--container-padding);
+  background: linear-gradient(180deg, rgba(14, 10, 8, 0.88) 0%, rgba(14, 10, 8, 0.5) 55%, transparent 100%);
+  border-bottom: 1px solid transparent;
+  transition: background 400ms var(--transition-smooth),
+              background-color 400ms var(--transition-smooth),
+              backdrop-filter 400ms var(--transition-smooth),
+              border-color 400ms var(--transition-smooth),
+              box-shadow 400ms var(--transition-smooth),
+              height 350ms var(--transition-smooth);
+}
+
+/* State when scrolled past the hero canvas section: Sleek Dark Rust-Noir Glass (Zero white background collision) */
 .taaga-header.header--scrolled {
   height: 72px;
-  background-color: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--color-gold-hairline);
-  box-shadow: 0 4px 24px -2px rgba(20, 18, 16, 0.06);
+  background: rgba(18, 12, 8, 0.94);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.28);
+  box-shadow: 0 8px 30px rgba(10, 8, 6, 0.35);
 }
 
 .taaga-header:not(.header--scrolled) .taaga-header__logo-text {
   color: #ffffff;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
 }
 
 .taaga-header.header--scrolled .taaga-header__logo-text {
-  color: var(--color-text-primary);
+  color: var(--color-gold-zari);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .taaga-header:not(.header--scrolled) .taaga-header__tagline {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .taaga-header.header--scrolled .taaga-header__tagline {
-  color: var(--color-gold-zari);
+  color: rgba(197, 160, 89, 0.85);
 }
 
 .taaga-header:not(.header--scrolled) .taaga-header__nav-link {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 .taaga-header.header--scrolled .taaga-header__nav-link {
-  color: var(--color-text-secondary);
+  color: #f7f4ed;
+  text-shadow: none;
 }
 
 .taaga-header:not(.header--scrolled) .taaga-header__cart-trigger {
@@ -296,7 +300,7 @@ button {
 }
 
 .taaga-header.header--scrolled .taaga-header__cart-trigger {
-  color: var(--color-text-primary);
+  color: #ffffff;
 }
 
 .taaga-header__brand {
@@ -439,12 +443,19 @@ button {
   height: 100%;
   z-index: 2;
   pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(18, 11, 7, 0.2) 0%,
-    rgba(18, 11, 7, 0.72) 75%,
-    rgba(18, 11, 7, 0.95) 100%
-  );
+  background: 
+    linear-gradient(
+      180deg,
+      rgba(18, 11, 7, 0.75) 0%,
+      rgba(18, 11, 7, 0.25) 15%,
+      transparent 28%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(18, 11, 7, 0.2) 0%,
+      rgba(18, 11, 7, 0.72) 75%,
+      rgba(18, 11, 7, 0.95) 100%
+    );
 }
 
 /* Architectural Transitional Fade from Dark Hero to Luminous White Atelier */
@@ -474,6 +485,12 @@ button {
 
   .hero-scrub-overlay {
     background: 
+      linear-gradient(
+        180deg,
+        rgba(18, 11, 7, 0.85) 0%,
+        rgba(18, 11, 7, 0.4) 14%,
+        transparent 28%
+      ),
       linear-gradient(
         90deg,
         rgba(18, 11, 7, 0.94) 0%,
