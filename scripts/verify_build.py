@@ -18,29 +18,49 @@ import subprocess
 from PIL import Image
 
 def test_frames():
-    print("[1/6] Verifying 180 WebP Frames in assets/frames...")
+    print("[1/10] Verifying 180 Mobile WebP Frames in assets/frames...")
     frames_dir = "assets/frames"
     assert os.path.exists(frames_dir), f"Directory {frames_dir} not found"
     
     frame_files = [f for f in os.listdir(frames_dir) if f.endswith(".webp")]
     assert len(frame_files) == 180, f"Expected 180 frames, found {len(frame_files)}"
 
-    # Validate frames sequentially and check headers
     for idx in range(1, 181):
         filename = f"frame_{idx:04d}.webp"
         filepath = os.path.join(frames_dir, filename)
         assert os.path.exists(filepath), f"Missing frame {filename}"
 
-    # Verify PIL format and resolution on key checkpoints
     for check_idx in [1, 20, 50, 90, 140, 180]:
         filename = f"frame_{check_idx:04d}.webp"
         filepath = os.path.join(frames_dir, filename)
         with Image.open(filepath) as img:
             assert img.format == "WEBP", f"{filename} is not WEBP"
-            assert img.size in [(720, 1280), (1280, 720)], f"{filename} incorrect resolution: {img.size}"
+            assert img.size == (720, 1280), f"{filename} incorrect mobile resolution: {img.size}"
             assert os.path.getsize(filepath) > 5000, f"{filename} suspiciously small"
 
-    print(f"      [PASS] 180 WebP frames verified ({img.size[0]}x{img.size[1]}, uncorrupted, sequential).")
+    print("      [PASS] 180 Mobile WebP frames verified (720x1280, uncorrupted, sequential).")
+
+    print("[1b/10] Verifying 180 Desktop Widescreen WebP Frames in assets/frames-desktop...")
+    desktop_frames_dir = "assets/frames-desktop"
+    assert os.path.exists(desktop_frames_dir), f"Directory {desktop_frames_dir} not found"
+    
+    desktop_frame_files = [f for f in os.listdir(desktop_frames_dir) if f.endswith(".webp")]
+    assert len(desktop_frame_files) == 180, f"Expected 180 desktop frames, found {len(desktop_frame_files)}"
+
+    for idx in range(1, 181):
+        filename = f"frame_{idx:04d}.webp"
+        filepath = os.path.join(desktop_frames_dir, filename)
+        assert os.path.exists(filepath), f"Missing desktop frame {filename}"
+
+    for check_idx in [1, 20, 50, 90, 140, 180]:
+        filename = f"frame_{check_idx:04d}.webp"
+        filepath = os.path.join(desktop_frames_dir, filename)
+        with Image.open(filepath) as img:
+            assert img.format == "WEBP", f"{filename} is not WEBP"
+            assert img.size == (1280, 720), f"{filename} incorrect desktop resolution: {img.size}"
+            assert os.path.getsize(filepath) > 5000, f"{filename} suspiciously small"
+
+    print("      [PASS] 180 Desktop WebP frames verified (1280x720, uncorrupted, sequential).")
 
 def test_css_tokens():
     print("[2/6] Verifying CSS Design System Tokens & Variable Integrity in assets/taaga-theme.css...")

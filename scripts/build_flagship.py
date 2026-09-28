@@ -3,7 +3,7 @@ import os
 import json
 import zipfile
 
-base_dir = r"c:\Users\Admin\Desktop\testcartel"
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # =====================================================================
 # 1. UPDATE index.html

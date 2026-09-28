@@ -26,7 +26,13 @@ class HeroVideoScrub {
     this.frameCount = parseInt(this.container.dataset.frameCount, 10) || 180;
     this.preloadCount = parseInt(this.container.dataset.preloadCount, 10) || 20;
     this.padLength = parseInt(this.container.dataset.padLength, 10) || 4;
-    this.urlTemplate = this.container.dataset.urlTemplate || './assets/frames/frame_{index}.webp';
+
+    // Dual-Asset Responsive Video Architecture (Desktop Landscape vs Mobile Portrait)
+    this.desktopUrlTemplate = this.container.dataset.desktopUrlTemplate || './assets/frames-desktop/frame_{index}.webp';
+    this.mobileUrlTemplate = this.container.dataset.mobileUrlTemplate || this.container.dataset.urlTemplate || './assets/frames/frame_{index}.webp';
+    this.isDesktop = window.innerWidth >= 768;
+    this.urlTemplate = this.isDesktop ? this.desktopUrlTemplate : this.mobileUrlTemplate;
+
     this.workerUrl = this.container.dataset.workerUrl || './assets/frame-loader-worker.js';
     this.pinDuration = this.container.dataset.pinDuration || '+=300%';
     this.scrubSmoothness = parseFloat(this.container.dataset.scrubSmoothness) || 0.5;
@@ -133,6 +139,20 @@ class HeroVideoScrub {
   handleResize() {
     clearTimeout(this.resizeTimeout);
     this.resizeTimeout = setTimeout(() => {
+      const wasDesktop = this.isDesktop;
+      this.isDesktop = window.innerWidth >= 768;
+
+      // If crossed responsive breakpoint, switch template and reload frames
+      if (wasDesktop !== this.isDesktop) {
+        this.urlTemplate = this.isDesktop ? this.desktopUrlTemplate : this.mobileUrlTemplate;
+        this.frames = new Array(this.frameCount).fill(null);
+        this.loadStatus = new Array(this.frameCount).fill(0);
+        this.currentRenderedIndex = -1;
+        this.preloadInitialFrames().then(() => {
+          this.initBackgroundLoader();
+        });
+      }
+
       this.setupCanvasDimensions();
       if (typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.refresh();
@@ -440,8 +460,14 @@ class HeroVideoScrub {
 
     const drawW = iw * ratio;
     const drawH = ih * ratio;
-    const shiftX = (cw - drawW) / 2;
-    const shiftY = (ch - drawH) / 2;
+    let shiftX = (cw - drawW) / 2;
+    let shiftY = (ch - drawH) / 2;
+
+    // Desktop framing: give slight right bias if widescreen image is cropped horizontally,
+    // preserving full visibility of the draped model and twirl on the center-right
+    if (this.isDesktop && drawW > cw) {
+      shiftX = Math.max(cw - drawW, (cw - drawW) * 0.42);
+    }
 
     this.ctx.clearRect(0, 0, cw, ch);
     this.ctx.drawImage(frameToDraw, 0, 0, iw, ih, shiftX, shiftY, drawW, drawH);

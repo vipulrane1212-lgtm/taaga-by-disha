@@ -1,0 +1,5 @@
+desktop taaga renis/
+sample_desktop_analysis/
+__pycache__/
+*.pyc
+.DS_Store

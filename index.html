@@ -93,7 +93,9 @@
       data-frame-count="180"
       data-preload-count="20"
       data-pad-length="4"
-      data-url-template="./assets/frames/frame_{index}.webp"
+      data-desktop-url-template="./assets/frames-desktop/frame_{index}.webp"
+      data-mobile-url-template="./assets/frames/frame_{index}.webp"
+      data-url-template="./assets/frames-desktop/frame_{index}.webp"
       data-worker-url="./assets/frame-loader-worker.js"
       data-pin-duration="+=300%"
       data-scrub-smoothness="0.5"
@@ -102,10 +104,10 @@
         <!-- Pinned HTML5 Canvas for Video Frame Scrub -->
         <canvas class="hero-scrub-canvas" aria-label="Taaga by Disha handloom saree draping sequence"></canvas>
 
-        <!-- Radial Vignette Overlay -->
+        <!-- Directional Studio Vignette Overlay -->
         <div class="hero-scrub-overlay" aria-hidden="true"></div>
 
-        <!-- Typography & Content Overlay -->
+        <!-- Typography & Content Overlay (Desktop Left-Aligned / Mobile Centered) -->
         <div class="hero-scrub-content">
           <div class="hero-scrub__badge">
             <span class="hero-scrub__badge-dot" aria-hidden="true"></span>
@@ -129,9 +131,25 @@
               </svg>
             </a>
 
-            <a href="#heritage" class="btn-secondary-outline">
+            <a href="#privilege-club" class="btn-secondary-outline">
               <span>The Artisan Atelier</span>
             </a>
+          </div>
+
+          <!-- Editorial Craft Pillars -->
+          <div class="hero-scrub__pillars">
+            <div class="hero-pillar-item">
+              <span class="hero-pillar-dot">✦</span>
+              <span>160h Ancestral Pit Loom</span>
+            </div>
+            <div class="hero-pillar-item">
+              <span class="hero-pillar-dot">✦</span>
+              <span>100% Certified Pure Silk</span>
+            </div>
+            <div class="hero-pillar-item">
+              <span class="hero-pillar-dot">✦</span>
+              <span>Bespoke Blouse Tailoring</span>
+            </div>
           </div>
         </div>
 
@@ -248,7 +266,7 @@
         <div class="product-grid" id="product-grid-container">
           
           <!-- Product Card 1: Surya Mukhi Jamdani -->
-          <article class="product-card" data-product-id="saree-01" data-occasion="festive bridal" data-occasion="festive bridal" data-occasion="festive bridal">
+          <article class="product-card" data-product-id="saree-01" data-occasion="festive bridal" data-occasion="festive bridal" data-occasion="festive bridal" data-occasion="festive bridal">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-01-folded.webp" 
@@ -312,7 +330,7 @@
           </article>
 
           <!-- Product Card 2: Neelambari Kora Silk -->
-          <article class="product-card" data-product-id="saree-02" data-occasion="bridal cocktail" data-occasion="bridal cocktail" data-occasion="bridal cocktail">
+          <article class="product-card" data-product-id="saree-02" data-occasion="bridal cocktail" data-occasion="bridal cocktail" data-occasion="bridal cocktail" data-occasion="bridal cocktail">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-02-folded.webp" 
@@ -375,7 +393,7 @@
           </article>
 
           <!-- Product Card 3: Maitree Chanderi Tissue -->
-          <article class="product-card" data-product-id="saree-03" data-occasion="cocktail daywear" data-occasion="cocktail daywear" data-occasion="cocktail daywear">
+          <article class="product-card" data-product-id="saree-03" data-occasion="cocktail daywear" data-occasion="cocktail daywear" data-occasion="cocktail daywear" data-occasion="cocktail daywear">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-03-folded.webp" 
@@ -438,7 +456,7 @@
           </article>
 
           <!-- Product Card 4: Raktambari Kanjeevaram -->
-          <article class="product-card" data-product-id="saree-04" data-occasion="bridal festive" data-occasion="bridal festive" data-occasion="bridal festive">
+          <article class="product-card" data-product-id="saree-04" data-occasion="bridal festive" data-occasion="bridal festive" data-occasion="bridal festive" data-occasion="bridal festive">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-04-folded.webp" 
@@ -501,7 +519,7 @@
           </article>
 
           <!-- Product Card 5: Dhaneshwari Tussar Silk -->
-          <article class="product-card" data-product-id="saree-05" data-occasion="festive daywear" data-occasion="festive daywear" data-occasion="festive daywear">
+          <article class="product-card" data-product-id="saree-05" data-occasion="festive daywear" data-occasion="festive daywear" data-occasion="festive daywear" data-occasion="festive daywear">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-05-folded.webp" 
@@ -564,7 +582,7 @@
           </article>
 
           <!-- Product Card 6: Alaknanda Maheshwari Silk-Cotton -->
-          <article class="product-card" data-product-id="saree-06" data-occasion="daywear cocktail" data-occasion="daywear cocktail" data-occasion="daywear cocktail">
+          <article class="product-card" data-product-id="saree-06" data-occasion="daywear cocktail" data-occasion="daywear cocktail" data-occasion="daywear cocktail" data-occasion="daywear cocktail">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-06-folded.webp" 
