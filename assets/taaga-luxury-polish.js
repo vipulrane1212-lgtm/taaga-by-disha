@@ -49,13 +49,11 @@
       // 4. Bridge Cart Drawer open/close states to stop/start Lenis scroll
       this.initCartLenisBridge();
 
-      // 5. Initialize Flagship Features: Ticker, Stories, Hotspots, Occasions, VIP Club & Pulses
-      this.initAnnouncementTicker();
+      // 5. Initialize Flagship Features: Stories, Hotspots, Occasions, VIP Club, Swatches
       this.initStoryReels();
       this.initShopTheLookHotspots();
       this.initOccasionFilters();
       this.initCartGiftProgress();
-      this.initPurchasePulses();
       this.initPrivilegeClaim();
       this.initCardSwatches();
       this.initCatalogViewToggle();
@@ -482,28 +480,8 @@
        5. ANNOUNCEMENT & PRIVILEGE TICKER BAR
        ======================================================================== */
     initAnnouncementTicker() {
-      const items = document.querySelectorAll('.announcement-bar__item');
-      if (!items.length) return;
-
-      let currentIndex = 0;
-      setInterval(() => {
-        items[currentIndex].classList.remove('is-active');
-        currentIndex = (currentIndex + 1) % items.length;
-        items[currentIndex].classList.add('is-active');
-      }, 3800);
-
-      // Copy coupon code click handler
-      document.querySelectorAll('.announcement-bar__code, [data-copy-code]').forEach((el) => {
-        el.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const code = el.dataset.copyCode || el.textContent.trim();
-          navigator.clipboard.writeText(code).then(() => {
-            const original = el.textContent;
-            el.textContent = 'COPIED!';
-            setTimeout(() => { el.textContent = original; }, 2000);
-          }).catch(() => {});
-        });
-      });
+      // Disabled per patron request for a clean, non-intrusive luxury header
+      return;
     }
 
     /* ========================================================================
@@ -747,39 +725,8 @@
        10. DISCREET REAL-TIME PURCHASE PULSES
        ======================================================================== */
     initPurchasePulses() {
-      const toast = document.getElementById('purchase-pulse-toast');
-      if (!toast) return;
-
-      const purchases = [
-        { name: 'Aarohi M.', city: 'New Delhi', item: 'Surya Mukhi Jamdani Saree', img: './assets/catalog/saree-01-drape.webp', time: '4m ago' },
-        { name: 'Priya K.', city: 'Mumbai', item: 'Neelambari Kora Silk Saree', img: './assets/catalog/saree-02-drape.webp', time: '8m ago' },
-        { name: 'Sunita D.', city: 'Kolkata', item: 'Maitree Chanderi Tissue Saree', img: './assets/catalog/saree-03-drape.webp', time: '14m ago' },
-        { name: 'Ananya S.', city: 'Bangalore', item: 'Raktambari Kanjeevaram Saree', img: './assets/catalog/saree-04-drape.webp', time: '19m ago' },
-        { name: 'Kavita R.', city: 'Hyderabad', item: 'Dhaneshwari Tussar Silk Saree', img: './assets/catalog/saree-05-drape.webp', time: '26m ago' }
-      ];
-
-      let pulseIdx = 0;
-      const showNextPulse = () => {
-        const p = purchases[pulseIdx];
-        pulseIdx = (pulseIdx + 1) % purchases.length;
-
-        const imgEl = toast.querySelector('.pulse-img');
-        if (imgEl) imgEl.src = p.img;
-        const headEl = toast.querySelector('.pulse-headline');
-        if (headEl) headEl.innerHTML = `<strong>${p.name}</strong> (${p.city}) acquired <em>${p.item}</em>`;
-        const timeEl = toast.querySelector('.pulse-time');
-        if (timeEl) timeEl.textContent = `Verified Purchase • ${p.time}`;
-
-        toast.classList.add('is-visible');
-        setTimeout(() => {
-          toast.classList.remove('is-visible');
-        }, 5000);
-      };
-
-      setTimeout(() => {
-        showNextPulse();
-        setInterval(showNextPulse, 18000);
-      }, 6000);
+      // Disabled per patron request: acquire notifications permanently silenced
+      return;
     }
 
     /* ========================================================================

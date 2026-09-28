@@ -1503,15 +1503,7 @@ html.lenis, html.lenis body {
    FLAGSHIP ADDITIONS: TOP ANNOUNCEMENT & PRIVILEGE TICKER BAR
    ======================================================================== */
 .announcement-bar {
-  background: #faf8f5;
-  border-bottom: 1px solid var(--color-gold-hairline);
-  color: var(--color-text-primary);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  padding: 0.6rem 1rem;
-  position: relative;
-  z-index: 105;
-  overflow: hidden;
+  display: none !important;
 }
 
 .announcement-bar__inner {
@@ -2129,52 +2121,255 @@ html.lenis, html.lenis body {
 }
 
 /* ========================================================================
-   FLAGSHIP ADDITIONS: CUSTOMER LOVE & UNBOXING VIDEO REELS
+   FLAGSHIP ADDITIONS: GOOGLE STYLE AUTO-SCROLLING REVIEWS SHOWCASE
    ======================================================================== */
 .reviews-section {
-  padding: 6rem 1.5rem;
+  padding: 6rem 0;
   background: rgba(250, 248, 245, 0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-gold-hairline);
+  overflow: hidden;
+}
+
+/* Google Rating Hero Summary Pill */
+.google-rating-summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: 999px;
+  padding: 0.75rem 1.75rem;
+  box-shadow: 0 10px 30px -8px rgba(20, 18, 16, 0.08);
+  margin-top: 1.25rem;
+}
+
+.google-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #121110;
+}
+
+.google-score-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.google-score-num {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #121110;
+  font-family: var(--font-sans);
+}
+
+.google-stars {
+  color: #fbbc05;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  display: inline-flex;
+}
+
+.google-count-text {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  border-left: 1px solid rgba(197, 160, 89, 0.3);
+  padding-left: 1rem;
+}
+
+/* Infinite Auto-Scrolling Carousel Track */
+.reviews-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 3.5rem;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
 }
 
 .reviews-carousel-track {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 1.75rem;
-  max-width: 1300px;
-  margin: 3rem auto 0 auto;
+  width: max-content;
+  animation: reviewsAutoScroll 50s linear infinite;
+  padding: 0.5rem 0 1.5rem 0;
 }
 
-@media (max-width: 900px) {
-  .reviews-carousel-track {
-    grid-template-columns: 1fr;
-  }
+.reviews-carousel-track:hover {
+  animation-play-state: paused;
 }
 
+@keyframes reviewsAutoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Google Style Review Card */
 .review-card {
-  background: #ffffff;
-  border: 1px solid rgba(197, 160, 89, 0.24);
-  border-radius: 8px;
-  padding: 1.75rem;
+  width: 380px;
+  max-width: 90vw;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(197, 160, 89, 0.28);
+  border-radius: 14px;
+  padding: 1.65rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1.25rem;
-  box-shadow: 0 10px 30px -8px rgba(20, 18, 16, 0.05);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  gap: 1.15rem;
+  box-shadow: 0 12px 32px -10px rgba(20, 18, 16, 0.06);
+  transition: transform 0.35s var(--transition-smooth),
+              box-shadow 0.35s var(--transition-smooth),
+              border-color 0.35s ease;
+  cursor: default;
 }
 
 .review-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(20, 184, 166, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(197, 160, 89, 0.22);
+  border-color: rgba(197, 160, 89, 0.55);
+}
+
+.review-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.review-user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.review-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.review-user-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.review-user-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.review-user-badge {
+  font-size: 0.72rem;
+  color: #70675f;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.review-google-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: #5f6368;
+}
+
+.review-rating-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .review-stars {
-  color: #f59e0b;
+  color: #fbbc05;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
   display: flex;
-  gap: 3px;
+}
+
+.review-date {
+  font-size: 0.75rem;
+  color: #8c827a;
+}
+
+/* Purchased Item Preview Tag */
+.review-purchased-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.65rem;
+  background: rgba(246, 242, 234, 0.7);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  border-radius: 6px;
+}
+
+.review-purchased-thumb {
+  width: 32px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.review-purchased-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.review-body-text {
+  font-size: 0.8875rem;
+  color: #2b2825;
+  line-height: 1.6;
+  font-style: normal;
+  margin: 0;
+}
+
+.review-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(197, 160, 89, 0.16);
+  font-size: 0.75rem;
+  color: #70675f;
+}
+
+.review-helpful-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #55514d;
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  cursor: pointer;
 }
 
 .review-verified-badge {
@@ -2182,7 +2377,7 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 0.35rem;
   font-size: 0.6875rem;
-  color: var(--color-teal-vibrant);
+  color: var(--color-teal-primary);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -2226,24 +2421,7 @@ html.lenis, html.lenis body {
    FLAGSHIP ADDITIONS: REAL-TIME PURCHASE PULSE TOAST
    ======================================================================== */
 .purchase-pulse-toast {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  z-index: 90;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--color-gold-hairline);
-  border-radius: 6px;
-  padding: 0.75rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  box-shadow: 0 12px 30px rgba(20, 18, 16, 0.12);
-  transform: translateY(120%);
-  opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-  pointer-events: none;
-  max-width: 320px;
+  display: none !important;
 }
 
 .purchase-pulse-toast.is-visible {

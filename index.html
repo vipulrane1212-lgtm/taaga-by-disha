@@ -30,26 +30,7 @@
   <!-- ========================================================================
        1. STICKY DYNAMIC HEADER (Transparent -> Solid Rust + Drop Shadow)
        ======================================================================== -->
-    <!-- ========================================================================
-       0. TOP ANNOUNCEMENT & PRIVILEGE TICKER BAR
-       ======================================================================== -->
-  <aside class="announcement-bar" role="region" aria-label="Privilege Announcements">
-    <div class="announcement-bar__inner">
-      <div class="announcement-bar__item is-active">
-        <span class="announcement-bar__pill">Inaugural Privilege</span>
-        <span>Complimentary Handcrafted Pure Silk Blouse Piece with orders above ₹25,000</span>
-        <span class="announcement-bar__code" data-copy-code="ATELIER2026" title="Click to copy code">Code: ATELIER2026</span>
-      </div>
-      <div class="announcement-bar__item">
-        <span class="announcement-bar__pill">Silk Mark Certified</span>
-        <span>100% Pure Mulberry &amp; Tussar Silk • Handwoven upon Ancestral Pit Looms</span>
-      </div>
-      <div class="announcement-bar__item">
-        <span class="announcement-bar__pill">Patron Concierge</span>
-        <span>Complimentary Insured Express Delivery Across India &amp; Worldwide • 14-Day Silk Trial</span>
-      </div>
-    </div>
-  </aside>
+
 
   <header class="taaga-header" id="site-header" role="banner">
     <div class="taaga-header__brand">
@@ -121,10 +102,7 @@
 
         <!-- Typography & Content Overlay (Desktop Left-Aligned / Mobile Centered) -->
         <div class="hero-scrub-content">
-          <div class="hero-scrub__badge">
-            <span class="hero-scrub__badge-dot" aria-hidden="true"></span>
-            <span>Artisanal Edition 2026 • Handwoven Heritage</span>
-          </div>
+
 
           <h1 class="hero-title hero-scrub__title">
             Taaga by Disha <br><em>The Poetics of Handloom</em>
@@ -958,64 +936,495 @@
     </section>
 
     <!-- ========================================================================
-         3.8 CUSTOMER LOVE & UNBOXING REVIEWS
+         3.8 CUSTOMER LOVE & UNBOXING REVIEWS (GOOGLE STYLE AUTO-SCROLLING TRACK)
          ======================================================================== -->
     <section class="reviews-section" id="reviews" aria-labelledby="reviews-heading">
-      <div class="catalog-container">
-        <header class="catalog-header" style="text-align: center; align-items: center;">
+      <div class="catalog-container" style="text-align: center;">
+        <header class="catalog-header" style="text-align: center; align-items: center; margin-bottom: 0;">
           <span class="sub-title">Patron Testimonials</span>
           <h2 id="reviews-heading" class="section-title">Voices From The Sanctuary</h2>
-          <p style="max-width: 540px; color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.6; text-align: center;">
+          <p style="max-width: 560px; color: var(--color-text-secondary); font-size: 0.9375rem; line-height: 1.6; text-align: center; margin: 0.5rem auto 0 auto;">
             Over 2,400 heirlooms delivered to patrons across 18 countries. Every parcel is Silk Mark verified, scented with natural vetiver root, and wrapped in organic muslin.
           </p>
+
+          <!-- Google Rating Scorecard Pill -->
+          <div class="google-rating-summary">
+            <div class="google-logo-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" style="flex-shrink: 0;" aria-hidden="true">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              <span>Google Rating</span>
+            </div>
+            <div class="google-score-box">
+              <span class="google-score-num">4.9</span>
+              <span class="google-stars" aria-label="5 out of 5 stars">★★★★★</span>
+            </div>
+            <span class="google-count-text">Based on <strong>348+ verified patron reviews</strong></span>
+          </div>
         </header>
+      </div>
 
+      <!-- Infinite Auto-Scrolling Carousel Track (Pause on Hover) -->
+      <div class="reviews-carousel-wrapper" aria-label="Customer Reviews Carousel">
         <div class="reviews-carousel-track">
+          <!-- CARD 1 -->
           <article class="review-card">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                <div class="review-stars">★★★★★</div>
-                <span class="review-verified-badge">✓ Silk Mark Verified</span>
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #8b3a2b;">RS</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Dr. Radhika Sen</div>
+                  <div class="review-user-badge">Local Guide • 42 reviews</div>
+                </div>
               </div>
-              <p style="font-size: 0.9375rem; color: #fff; line-height: 1.6; font-style: italic;">
-                “The weight and fall of the Surya Mukhi Jamdani is unlike anything you find in commercial stores. The fabric breathes like pure poetry, and the tactile zoom on the site was 100% true to real life.”
-              </p>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
             </div>
-            <div style="border-top: 1px solid rgba(68, 42, 27, 0.6); padding-top: 0.875rem;">
-              <div style="font-weight: 600; color: #fff; font-size: 0.875rem;">Dr. Radhika Sen</div>
-              <div style="font-size: 0.75rem; color: var(--color-rust-muted);">South Kensington, London • Surya Mukhi Jamdani</div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">4 days ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-01-folded.webp" alt="Surya Mukhi Jamdani" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Surya Mukhi Jamdani (Hand-Spun Bengal Khadi)</span>
+            </div>
+            <p class="review-body-text">
+              “The weight and fall of the Surya Mukhi Jamdani is unlike anything you find in commercial stores. The fabric breathes like pure poetry, and the tactile zoom on the site was 100% true to real life. Scented with natural vetiver root!”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (18)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
             </div>
           </article>
 
+          <!-- CARD 2 -->
           <article class="review-card">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                <div class="review-stars">★★★★★</div>
-                <span class="review-verified-badge">✓ Silk Mark Verified</span>
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #1c3b57;">MS</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Meenakshi Sundaram</div>
+                  <div class="review-user-badge">Local Guide • 19 reviews</div>
+                </div>
               </div>
-              <p style="font-size: 0.9375rem; color: #fff; line-height: 1.6; font-style: italic;">
-                “I wore the Neelambari Kora Silk to my daughter's sangeet. The contrast between the midnight blue and pure kadwa zari was breathtaking. The concierge service over WhatsApp was so reassuring.”
-              </p>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
             </div>
-            <div style="border-top: 1px solid rgba(68, 42, 27, 0.6); padding-top: 0.875rem;">
-              <div style="font-weight: 600; color: #fff; font-size: 0.875rem;">Meenakshi Sundaram</div>
-              <div style="font-size: 0.75rem; color: var(--color-rust-muted);">Alwarpet, Chennai • Neelambari Kora Silk</div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">1 week ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-02-folded.webp" alt="Neelambari Kora Silk" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Neelambari Kora Silk (Pure Kadwa Zari)</span>
+            </div>
+            <p class="review-body-text">
+              “I wore the Neelambari Kora Silk to my daughter's sangeet in Chennai. The contrast between midnight blue and pure kadwa zari was breathtaking under chandeliers. The WhatsApp concierge was so reassuring.”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (24)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
             </div>
           </article>
 
+          <!-- CARD 3 -->
           <article class="review-card">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                <div class="review-stars">★★★★★</div>
-                <span class="review-verified-badge">✓ Silk Mark Verified</span>
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #732029;">AS</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Anupama Singhania</div>
+                  <div class="review-user-badge">Verified Connoisseur • 12 reviews</div>
+                </div>
               </div>
-              <p style="font-size: 0.9375rem; color: #fff; line-height: 1.6; font-style: italic;">
-                “The Raktambari Kanjeevaram is a true heirloom piece. The Korvai hand-interlocking is pristine, and the stole gift was such a thoughtful luxury touch. Worth every single rupee.”
-              </p>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
             </div>
-            <div style="border-top: 1px solid rgba(68, 42, 27, 0.6); padding-top: 0.875rem;">
-              <div style="font-weight: 600; color: #fff; font-size: 0.875rem;">Anupama Singhania</div>
-              <div style="font-size: 0.75rem; color: var(--color-rust-muted);">Bandra West, Mumbai • Raktambari Kanjeevaram</div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">2 weeks ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-03-folded.webp" alt="Raktambari Kanjeevaram" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Raktambari Kanjeevaram (Interlocked Korvai)</span>
+            </div>
+            <p class="review-body-text">
+              “The Korvai hand-interlocking is pristine, with zero machine irregularities. The complimentary pure mulberry silk stole gift was such a thoughtful luxury touch. Worth every single rupee.”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (31)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
+            </div>
+          </article>
+
+          <!-- CARD 4 -->
+          <article class="review-card">
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #4a5240;">GV</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Gayatri Devi Varma</div>
+                  <div class="review-user-badge">Local Guide • 56 reviews</div>
+                </div>
+              </div>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">3 weeks ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-04-folded.webp" alt="Chandrika Tussar Georgette" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Chandrika Tussar Georgette (Hand-Beaten Munga)</span>
+            </div>
+            <p class="review-body-text">
+              “The diaphanous texture and golden munga sheen draped like liquid gold. As someone whose family collected handlooms for four generations, Taaga's authenticity certificate gave immense peace of mind.”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (14)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
+            </div>
+          </article>
+
+          <!-- CARD 5 -->
+          <article class="review-card">
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #6b4226;">NR</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Nandini Roychowdhury</div>
+                  <div class="review-user-badge">Verified Patron • Singapore</div>
+                </div>
+              </div>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">1 month ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-05-folded.webp" alt="Malhar Chanderi Tissue" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Malhar Chanderi Tissue (Ganga-Jamuna Zari)</span>
+            </div>
+            <p class="review-body-text">
+              “Ordered from Singapore with express dispatch. Arrived in 48 hours in gorgeous hand-stitched organic muslin with dried vetiver roots. The pallu work is an absolute masterpiece of pit loom art.”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (27)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
+            </div>
+          </article>
+
+          <!-- CARD 6 -->
+          <article class="review-card">
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #2a4849;">PD</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Priya Deshmukh</div>
+                  <div class="review-user-badge">Local Guide • 28 reviews</div>
+                </div>
+              </div>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">1 month ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-06-folded.webp" alt="Shwetaambari Tanchoi" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Shwetaambari Tanchoi (Satin-Embossed Silk)</span>
+            </div>
+            <p class="review-body-text">
+              “The satin-embossed peacock motifs catch ambient evening light subtly without looking loud. Disha’s team helped me choose matching blouse fabric via video call. Truly exceptional bespoke service.”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (19)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
+            </div>
+          </article>
+
+          <!-- DUPLICATE SET FOR SEAMLESS 100% INFINITE CSS MARQUEE LOOP -->
+
+          <!-- CARD 1 (DUPLICATE) -->
+          <article class="review-card" aria-hidden="true">
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #8b3a2b;">RS</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Dr. Radhika Sen</div>
+                  <div class="review-user-badge">Local Guide • 42 reviews</div>
+                </div>
+              </div>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">4 days ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-01-folded.webp" alt="Surya Mukhi Jamdani" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Surya Mukhi Jamdani (Hand-Spun Bengal Khadi)</span>
+            </div>
+            <p class="review-body-text">
+              “The weight and fall of the Surya Mukhi Jamdani is unlike anything you find in commercial stores. The fabric breathes like pure poetry, and the tactile zoom on the site was 100% true to real life. Scented with natural vetiver root!”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful" tabindex="-1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (18)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
+            </div>
+          </article>
+
+          <!-- CARD 2 (DUPLICATE) -->
+          <article class="review-card" aria-hidden="true">
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #1c3b57;">MS</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Meenakshi Sundaram</div>
+                  <div class="review-user-badge">Local Guide • 19 reviews</div>
+                </div>
+              </div>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">1 week ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-02-folded.webp" alt="Neelambari Kora Silk" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Neelambari Kora Silk (Pure Kadwa Zari)</span>
+            </div>
+            <p class="review-body-text">
+              “I wore the Neelambari Kora Silk to my daughter's sangeet in Chennai. The contrast between midnight blue and pure kadwa zari was breathtaking under chandeliers. The WhatsApp concierge was so reassuring.”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful" tabindex="-1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (24)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
+            </div>
+          </article>
+
+          <!-- CARD 3 (DUPLICATE) -->
+          <article class="review-card" aria-hidden="true">
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #732029;">AS</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Anupama Singhania</div>
+                  <div class="review-user-badge">Verified Connoisseur • 12 reviews</div>
+                </div>
+              </div>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">2 weeks ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-03-folded.webp" alt="Raktambari Kanjeevaram" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Raktambari Kanjeevaram (Interlocked Korvai)</span>
+            </div>
+            <p class="review-body-text">
+              “The Korvai hand-interlocking is pristine, with zero machine irregularities. The complimentary pure mulberry silk stole gift was such a thoughtful luxury touch. Worth every single rupee.”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful" tabindex="-1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (31)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
+            </div>
+          </article>
+
+          <!-- CARD 4 (DUPLICATE) -->
+          <article class="review-card" aria-hidden="true">
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #4a5240;">GV</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Gayatri Devi Varma</div>
+                  <div class="review-user-badge">Local Guide • 56 reviews</div>
+                </div>
+              </div>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">3 weeks ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-04-folded.webp" alt="Chandrika Tussar Georgette" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Chandrika Tussar Georgette (Hand-Beaten Munga)</span>
+            </div>
+            <p class="review-body-text">
+              “The diaphanous texture and golden munga sheen draped like liquid gold. As someone whose family collected handlooms for four generations, Taaga's authenticity certificate gave immense peace of mind.”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful" tabindex="-1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (14)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
+            </div>
+          </article>
+
+          <!-- CARD 5 (DUPLICATE) -->
+          <article class="review-card" aria-hidden="true">
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #6b4226;">NR</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Nandini Roychowdhury</div>
+                  <div class="review-user-badge">Verified Patron • Singapore</div>
+                </div>
+              </div>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">1 month ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-05-folded.webp" alt="Malhar Chanderi Tissue" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Malhar Chanderi Tissue (Ganga-Jamuna Zari)</span>
+            </div>
+            <p class="review-body-text">
+              “Ordered from Singapore with express dispatch. Arrived in 48 hours in gorgeous hand-stitched organic muslin with dried vetiver roots. The pallu work is an absolute masterpiece of pit loom art.”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful" tabindex="-1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (27)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
+            </div>
+          </article>
+
+          <!-- CARD 6 (DUPLICATE) -->
+          <article class="review-card" aria-hidden="true">
+            <div class="review-card__header">
+              <div class="review-user-info">
+                <div class="review-avatar" style="background: #2a4849;">PD</div>
+                <div class="review-user-meta">
+                  <div class="review-user-name">Priya Deshmukh</div>
+                  <div class="review-user-badge">Local Guide • 28 reviews</div>
+                </div>
+              </div>
+              <div class="review-google-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                <span>Google Review</span>
+              </div>
+            </div>
+            <div class="review-rating-row">
+              <div class="review-stars">★★★★★</div>
+              <span class="review-date">1 month ago</span>
+            </div>
+            <div class="review-purchased-item">
+              <img class="review-purchased-thumb" src="./assets/catalog/saree-06-folded.webp" alt="Shwetaambari Tanchoi" width="32" height="40" loading="lazy">
+              <span class="review-purchased-text">Shwetaambari Tanchoi (Satin-Embossed Silk)</span>
+            </div>
+            <p class="review-body-text">
+              “The satin-embossed peacock motifs catch ambient evening light subtly without looking loud. Disha’s team helped me choose matching blouse fabric via video call. Truly exceptional bespoke service.”
+            </p>
+            <div class="review-card__footer">
+              <button class="review-helpful-btn" type="button" aria-label="Mark review as helpful" tabindex="-1">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                Helpful (19)
+              </button>
+              <span class="review-verified-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0f766e" style="margin-right: 3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Silk Mark Verified
+              </span>
             </div>
           </article>
         </div>
@@ -1125,16 +1534,7 @@
     </div>
   </div>
 
-  <!-- ========================================================================
-       6. REAL-TIME PURCHASE PULSE TOAST
-       ======================================================================== -->
-  <div class="purchase-pulse-toast" id="purchase-pulse-toast" role="status" aria-live="polite">
-    <img src="./assets/catalog/saree-01-drape.webp" alt="Purchased Item" class="pulse-img">
-    <div class="pulse-info">
-      <div class="pulse-headline"><strong>Aarohi M.</strong> (New Delhi) acquired <em>Surya Mukhi Jamdani</em></div>
-      <div class="pulse-time">Verified Purchase • 4m ago</div>
-    </div>
-  </div>
+
 
   <!-- ========================================================================
        7. WHATSAPP VIP CONCIERGE FLOATING BUTTON
