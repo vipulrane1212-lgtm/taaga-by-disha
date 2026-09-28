@@ -107,6 +107,13 @@
       {{ display_craft }}
     </span>
 
+    <!-- Interactive Card Perspective Swatches -->
+    <div class="product-card__swatches" aria-label="Perspective Swatches">
+      <button type="button" class="card-swatch-dot is-active" data-view="drape" data-src="{{ card_drape_src }}" style="background: var(--color-gold-zari);" title="Model Drape" aria-label="View Model Drape"></button>
+      <button type="button" class="card-swatch-dot" data-view="folded" data-src="{{ card_folded_src }}" style="background: var(--color-gold-deep);" title="Artisanal Fold" aria-label="View Folded Silk"></button>
+      <button type="button" class="card-swatch-dot" data-view="detail" data-src="{{ card_zoom_src }}" style="background: var(--color-teal-primary);" title="Pallu / Zari Detail" aria-label="View Pallu Detail"></button>
+    </div>
+
     <!-- Magnetic Card Actions (Quick Add + Tactile Weave Inspector) -->
     <div class="product-card__actions">
       <!-- Tactile Zoom Inspect Button -->
@@ -151,7 +158,7 @@
 
   <div class="product-card__details">
     <span class="product-card__craft-origin">
-      {{ display_cluster }}
+      ✦ {{ display_cluster }}
     </span>
     <h3 class="product-card__title">
       <a href="{{ product.url | default: '#catalog' }}">
@@ -168,5 +175,6 @@
         </span>
       {%- endif -%}
     </div>
+    <div class="product-card__privilege-tier">✦ Privilege Tier: {{ display_price | times: 0.9 | money }} with Pass</div>
   </div>
 </article>

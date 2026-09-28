@@ -15,7 +15,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 </head>
-<body class="template-index">
+<body class="taaga-boutique">
+  <!-- Artisanal Loom Canvas Background Layer (Micro-Warp/Weft Grid, Hallmark Seals & 24K Gold Sheen) -->
+  <canvas id="artisanal-canvas-bg" class="artisanal-canvas-bg" aria-hidden="true"></canvas>
+
+  <!-- Brand Marginalia Rails (Screen-Edge Haute Couture Typographic Architecture) -->
+  <div class="brand-marginalia brand-marginalia--left" aria-hidden="true">
+    ✦ TAAGA BY DISHA • ARCHIVAL COLLECTION 2026 ✦
+  </div>
+  <div class="brand-marginalia brand-marginalia--right" aria-hidden="true">
+    PIT LOOM JACQUARD • 100% PURE MULBERRY SILK • SILK MARK VERIFIED
+  </div>
 
   <!-- ========================================================================
        1. STICKY DYNAMIC HEADER (Transparent -> Solid Rust + Drop Shadow)
@@ -80,7 +90,15 @@
         <span class="taaga-header__cart-count" id="cart-icon-bubble-count">0</span>
       </button>
     </div>
-  </header>
+              <div class="catalog-view-toggle" role="group" aria-label="Catalog Layout Mode">
+              <button type="button" class="catalog-view-btn is-active" data-view-mode="editorial">
+                <span>✦ Editorial Lookbook</span>
+              </button>
+              <button type="button" class="catalog-view-btn" data-view-mode="grid">
+                <span>❖ Archive Grid</span>
+              </button>
+            </div>
+        </header>
 
   <main id="MainContent" role="main">
     <!-- ========================================================================
@@ -106,6 +124,8 @@
 
         <!-- Directional Studio Vignette Overlay -->
         <div class="hero-scrub-overlay" aria-hidden="true"></div>
+        <!-- Architectural Transitional Fade to Luminous White Atelier -->
+        <div class="hero-scrub__transitional-fade" aria-hidden="true"></div>
 
         <!-- Typography & Content Overlay (Desktop Left-Aligned / Mobile Centered) -->
         <div class="hero-scrub-content">
@@ -244,12 +264,24 @@
         <header class="catalog-header">
           <span class="sub-title">Curated Autumn Archive</span>
           <div class="catalog-meta">
-            <h2 id="catalog-heading" class="section-title">
-              The Handloom Sanctuary
-            </h2>
-            <p style="max-width: 520px; color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.6;">
-              Woven upon ancestral pit looms across Bengal, Varanasi, and Maheshwar. Each creation represents over 120 hours of manual shuttling, honoring singular artisan lineage.
-            </p>
+            <div>
+              <h2 id="catalog-heading" class="section-title">
+                The Handloom Sanctuary
+              </h2>
+              <p style="max-width: 520px; color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.6; margin-top: 0.5rem;">
+                Woven upon ancestral pit looms across Bengal, Varanasi, and Maheshwar. Each creation represents over 120 hours of manual shuttling, honoring singular artisan lineage.
+              </p>
+            </div>
+
+            <!-- Curated Catalog View Toggle: Editorial Lookbook vs Archive Grid -->
+            <div class="catalog-view-toggle" role="group" aria-label="Catalog Layout Mode">
+              <button type="button" class="catalog-view-btn is-active" data-view-mode="editorial" aria-label="Editorial Lookbook View">
+                <span>✦ Editorial Lookbook</span>
+              </button>
+              <button type="button" class="catalog-view-btn" data-view-mode="grid" aria-label="Archive Grid View">
+                <span>❖ Archive Grid</span>
+              </button>
+            </div>
           </div>
         </header>
 
@@ -262,11 +294,11 @@
           <button type="button" class="occasion-tab-btn" data-occasion-filter="daywear">Airy Luxury</button>
         </div>
 
-        <!-- The 2-Column Mobile, 3-Column Desktop Grid (Strict 4:5 Aspect Ratio) -->
-        <div class="product-grid" id="product-grid-container">
+        <!-- The Architectural Editorial & Archive Grid (Strict 4:5 Aspect Ratio) -->
+        <div id="product-grid-container" class="product-grid product-grid--editorial">
           
           <!-- Product Card 1: Surya Mukhi Jamdani -->
-          <article class="product-card" data-product-id="saree-01" data-occasion="festive bridal" data-occasion="festive bridal" data-occasion="festive bridal" data-occasion="festive bridal">
+          <article class="product-card" data-product-id="saree-01" data-occasion="festive bridal">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-01-folded.webp" 
@@ -289,6 +321,13 @@
                 height="1000"
               >
               <span class="product-card__badge">Handloom Jamdani</span>
+
+              <!-- Interactive Card Perspective Swatches -->
+              <div class="product-card__swatches" aria-label="Perspective Swatches">
+                <button type="button" class="card-swatch-dot is-active" data-view="drape" data-src="./assets/catalog/saree-01-drape.webp" style="background: #b88a44;" title="Model Drape" aria-label="View Model Drape"></button>
+                <button type="button" class="card-swatch-dot" data-view="folded" data-src="./assets/catalog/saree-01-folded.webp" style="background: #c5a059;" title="Artisanal Fold" aria-label="View Folded Silk"></button>
+                <button type="button" class="card-swatch-dot" data-view="detail" data-src="./assets/catalog/saree-01-drape.webp" style="background: #0c4a42;" title="Pallu / Zari Detail" aria-label="View Pallu Detail"></button>
+              </div>
               
               <div class="product-card__actions">
                 <button 
@@ -320,17 +359,18 @@
               </div>
             </div>
             <div class="product-card__details">
-              <span class="product-card__craft-origin">Bengal Pit Loom • 160 Hours</span>
+              <span class="product-card__craft-origin">✦ Bengal Pit Loom • 160 Hours</span>
               <h3 class="product-card__title"><a href="#catalog">Surya Mukhi Jamdani Saree</a></h3>
               <div class="product-card__price-row">
                 <span class="product-card__price">₹34,500</span>
                 <span class="product-card__price--compare">₹38,000</span>
               </div>
+              <div class="product-card__privilege-tier">✦ Privilege Tier: ₹31,050 with Pass</div>
             </div>
           </article>
 
           <!-- Product Card 2: Neelambari Kora Silk -->
-          <article class="product-card" data-product-id="saree-02" data-occasion="bridal cocktail" data-occasion="bridal cocktail" data-occasion="bridal cocktail" data-occasion="bridal cocktail">
+          <article class="product-card" data-product-id="saree-02" data-occasion="bridal cocktail">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-02-folded.webp" 
@@ -353,6 +393,13 @@
                 height="1000"
               >
               <span class="product-card__badge">Pure Mulberry Silk</span>
+
+              <!-- Interactive Card Perspective Swatches -->
+              <div class="product-card__swatches" aria-label="Perspective Swatches">
+                <button type="button" class="card-swatch-dot is-active" data-view="drape" data-src="./assets/catalog/saree-02-drape.webp" style="background: #1e293b;" title="Model Drape" aria-label="View Model Drape"></button>
+                <button type="button" class="card-swatch-dot" data-view="folded" data-src="./assets/catalog/saree-02-folded.webp" style="background: #38bdf8;" title="Artisanal Fold" aria-label="View Folded Silk"></button>
+                <button type="button" class="card-swatch-dot" data-view="detail" data-src="./assets/catalog/saree-02-drape.webp" style="background: #c5a059;" title="Pallu / Zari Detail" aria-label="View Pallu Detail"></button>
+              </div>
               
               <div class="product-card__actions">
                 <button 
@@ -384,16 +431,18 @@
               </div>
             </div>
             <div class="product-card__details">
-              <span class="product-card__craft-origin">Varanasi Guild • Zari Kadwa</span>
+              <span class="product-card__craft-origin">✦ Varanasi Guild • Zari Kadwa</span>
               <h3 class="product-card__title"><a href="#catalog">Neelambari Kora Silk Saree</a></h3>
               <div class="product-card__price-row">
-                <span class="product-card__price">₹42,000</span>
+                <span class="product-card__price">42,000</span>
+                
               </div>
+              <div class="product-card__privilege-tier">✦ Privilege Tier: ₹37,800 with Pass</div>
             </div>
           </article>
 
           <!-- Product Card 3: Maitree Chanderi Tissue -->
-          <article class="product-card" data-product-id="saree-03" data-occasion="cocktail daywear" data-occasion="cocktail daywear" data-occasion="cocktail daywear" data-occasion="cocktail daywear">
+          <article class="product-card" data-product-id="saree-03" data-occasion="cocktail festive">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-03-folded.webp" 
@@ -415,7 +464,14 @@
                 width="800"
                 height="1000"
               >
-              <span class="product-card__badge">Gold & Silver Zari</span>
+              <span class="product-card__badge">Gold Zari Tissue</span>
+
+              <!-- Interactive Card Perspective Swatches -->
+              <div class="product-card__swatches" aria-label="Perspective Swatches">
+                <button type="button" class="card-swatch-dot is-active" data-view="drape" data-src="./assets/catalog/saree-03-drape.webp" style="background: #d4af37;" title="Model Drape" aria-label="View Model Drape"></button>
+                <button type="button" class="card-swatch-dot" data-view="folded" data-src="./assets/catalog/saree-03-folded.webp" style="background: #fef08a;" title="Artisanal Fold" aria-label="View Folded Silk"></button>
+                <button type="button" class="card-swatch-dot" data-view="detail" data-src="./assets/catalog/saree-03-drape.webp" style="background: #0c4a42;" title="Pallu / Zari Detail" aria-label="View Pallu Detail"></button>
+              </div>
               
               <div class="product-card__actions">
                 <button 
@@ -423,7 +479,7 @@
                   class="btn-card-inspect" 
                   data-open-zoom-inspect
                   data-title="Maitree Chanderi Tissue Saree"
-                  data-craft="Chanderi Cluster • Handwoven"
+                  data-craft="Chanderi Weavers • 120D Warp"
                   data-zoom-src="./assets/catalog/saree-03-drape.webp"
                   aria-label="Inspect fabric weave in 2.5x high resolution"
                 >
@@ -436,9 +492,9 @@
                   data-quick-add
                   data-variant-id="saree-03"
                   data-title="Maitree Chanderi Tissue Saree"
-                  data-price="2890000"
+                  data-price="2850000"
                   data-image="./assets/catalog/saree-03-folded.webp"
-                  data-craft="Chanderi Cluster • Handwoven"
+                  data-craft="Chanderi Weavers • 120D Warp"
                   aria-label="Add Maitree Chanderi Tissue Saree to bag"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
@@ -447,16 +503,18 @@
               </div>
             </div>
             <div class="product-card__details">
-              <span class="product-card__craft-origin">Chanderi Cluster • Handwoven</span>
+              <span class="product-card__craft-origin">✦ Chanderi Weavers • 120D Warp</span>
               <h3 class="product-card__title"><a href="#catalog">Maitree Chanderi Tissue Saree</a></h3>
               <div class="product-card__price-row">
-                <span class="product-card__price">₹28,900</span>
+                <span class="product-card__price">28,500</span>
+                <span class="product-card__price--compare">₹32,000</span>
               </div>
+              <div class="product-card__privilege-tier">✦ Privilege Tier: ₹25,650 with Pass</div>
             </div>
           </article>
 
           <!-- Product Card 4: Raktambari Kanjeevaram -->
-          <article class="product-card" data-product-id="saree-04" data-occasion="bridal festive" data-occasion="bridal festive" data-occasion="bridal festive" data-occasion="bridal festive">
+          <article class="product-card" data-product-id="saree-04" data-occasion="bridal festive">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-04-folded.webp" 
@@ -478,7 +536,14 @@
                 width="800"
                 height="1000"
               >
-              <span class="product-card__badge">Korvai Hand-interlocked</span>
+              <span class="product-card__badge">Temple Korvai Border</span>
+
+              <!-- Interactive Card Perspective Swatches -->
+              <div class="product-card__swatches" aria-label="Perspective Swatches">
+                <button type="button" class="card-swatch-dot is-active" data-view="drape" data-src="./assets/catalog/saree-04-drape.webp" style="background: #881337;" title="Model Drape" aria-label="View Model Drape"></button>
+                <button type="button" class="card-swatch-dot" data-view="folded" data-src="./assets/catalog/saree-04-folded.webp" style="background: #f43f5e;" title="Artisanal Fold" aria-label="View Folded Silk"></button>
+                <button type="button" class="card-swatch-dot" data-view="detail" data-src="./assets/catalog/saree-04-drape.webp" style="background: #c5a059;" title="Pallu / Zari Detail" aria-label="View Pallu Detail"></button>
+              </div>
               
               <div class="product-card__actions">
                 <button 
@@ -510,16 +575,18 @@
               </div>
             </div>
             <div class="product-card__details">
-              <span class="product-card__craft-origin">Kanchipuram • Pure Mulberry</span>
+              <span class="product-card__craft-origin">✦ Kanchipuram • Pure Mulberry</span>
               <h3 class="product-card__title"><a href="#catalog">Raktambari Kanjeevaram Saree</a></h3>
               <div class="product-card__price-row">
-                <span class="product-card__price">₹58,000</span>
+                <span class="product-card__price">58,000</span>
+                
               </div>
+              <div class="product-card__privilege-tier">✦ Privilege Tier: ₹52,200 with Pass</div>
             </div>
           </article>
 
           <!-- Product Card 5: Dhaneshwari Tussar Silk -->
-          <article class="product-card" data-product-id="saree-05" data-occasion="festive daywear" data-occasion="festive daywear" data-occasion="festive daywear" data-occasion="festive daywear">
+          <article class="product-card" data-product-id="saree-05" data-occasion="festive daywear">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-05-folded.webp" 
@@ -542,6 +609,13 @@
                 height="1000"
               >
               <span class="product-card__badge">Wild Organic Tussar</span>
+
+              <!-- Interactive Card Perspective Swatches -->
+              <div class="product-card__swatches" aria-label="Perspective Swatches">
+                <button type="button" class="card-swatch-dot is-active" data-view="drape" data-src="./assets/catalog/saree-05-drape.webp" style="background: #78350f;" title="Model Drape" aria-label="View Model Drape"></button>
+                <button type="button" class="card-swatch-dot" data-view="folded" data-src="./assets/catalog/saree-05-folded.webp" style="background: #d97706;" title="Artisanal Fold" aria-label="View Folded Silk"></button>
+                <button type="button" class="card-swatch-dot" data-view="detail" data-src="./assets/catalog/saree-05-drape.webp" style="background: #c5a059;" title="Pallu / Zari Detail" aria-label="View Pallu Detail"></button>
+              </div>
               
               <div class="product-card__actions">
                 <button 
@@ -573,16 +647,18 @@
               </div>
             </div>
             <div class="product-card__details">
-              <span class="product-card__craft-origin">Bhagalpur Weavers Collective</span>
+              <span class="product-card__craft-origin">✦ Bhagalpur Weavers Collective</span>
               <h3 class="product-card__title"><a href="#catalog">Dhaneshwari Tussar Silk Saree</a></h3>
               <div class="product-card__price-row">
-                <span class="product-card__price">₹24,500</span>
+                <span class="product-card__price">24,500</span>
+                
               </div>
+              <div class="product-card__privilege-tier">✦ Privilege Tier: ₹22,050 with Pass</div>
             </div>
           </article>
 
           <!-- Product Card 6: Alaknanda Maheshwari Silk-Cotton -->
-          <article class="product-card" data-product-id="saree-06" data-occasion="daywear cocktail" data-occasion="daywear cocktail" data-occasion="daywear cocktail" data-occasion="daywear cocktail">
+          <article class="product-card" data-product-id="saree-06" data-occasion="daywear cocktail">
             <div class="product-card__media-wrap">
               <img 
                 src="./assets/catalog/saree-06-folded.webp" 
@@ -605,6 +681,13 @@
                 height="1000"
               >
               <span class="product-card__badge">Narmada Reversible Border</span>
+
+              <!-- Interactive Card Perspective Swatches -->
+              <div class="product-card__swatches" aria-label="Perspective Swatches">
+                <button type="button" class="card-swatch-dot is-active" data-view="drape" data-src="./assets/catalog/saree-06-drape.webp" style="background: #065f46;" title="Model Drape" aria-label="View Model Drape"></button>
+                <button type="button" class="card-swatch-dot" data-view="folded" data-src="./assets/catalog/saree-06-folded.webp" style="background: #34d399;" title="Artisanal Fold" aria-label="View Folded Silk"></button>
+                <button type="button" class="card-swatch-dot" data-view="detail" data-src="./assets/catalog/saree-06-drape.webp" style="background: #c5a059;" title="Pallu / Zari Detail" aria-label="View Pallu Detail"></button>
+              </div>
               
               <div class="product-card__actions">
                 <button 
@@ -636,11 +719,13 @@
               </div>
             </div>
             <div class="product-card__details">
-              <span class="product-card__craft-origin">Maheshwar Fort Guild</span>
+              <span class="product-card__craft-origin">✦ Maheshwar Fort Guild</span>
               <h3 class="product-card__title"><a href="#catalog">Alaknanda Maheshwari Silk-Cotton</a></h3>
               <div class="product-card__price-row">
-                <span class="product-card__price">₹19,800</span>
+                <span class="product-card__price">19,800</span>
+                
               </div>
+              <div class="product-card__privilege-tier">✦ Privilege Tier: ₹17,820 with Pass</div>
             </div>
           </article>
 
@@ -1068,6 +1153,7 @@
   </a>
 
   <!-- Interactive Scripts -->
+  <script src="./assets/artisanal-canvas-bg.js"></script>
   <script src="./assets/hero-video-scrub.js"></script>
   <script src="./assets/cart-drawer.js"></script>
   <script src="./assets/taaga-luxury-polish.js"></script>

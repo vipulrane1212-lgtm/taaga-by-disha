@@ -459,10 +459,57 @@ def test_phase2_templates_and_html():
 
     print("      [PASS] Liquid templates, PDP tactile zoom, and standalone preview fully integrated.")
 
+def test_phase3_canvas_and_lookbook():
+    print("[11/11] Verifying Artisanal Canvas Background & Architectural Lookbook Catalog...")
+    # 1. Canvas Background JS Engine
+    bg_js = "assets/artisanal-canvas-bg.js"
+    assert os.path.exists(bg_js), f"Missing {bg_js}"
+    res = subprocess.run(["node", "--check", bg_js], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    assert res.returncode == 0, f"JS Syntax error in {bg_js}: {res.stderr.decode()}"
+    with open(bg_js, "r", encoding="utf-8") as f:
+        bg_content = f.read()
+    assert "class ArtisanalCanvasBackground" in bg_content
+    assert "drawLoomGrid" in bg_content
+    assert "drawArtisanalWatermarks" in bg_content
+    assert "drawSilkSheen" in bg_content
+
+    # 2. CSS Architecture
+    with open("assets/taaga-theme.css", "r", encoding="utf-8") as f:
+        css = f.read()
+    assert ".artisanal-canvas-bg" in css
+    assert ".brand-marginalia" in css
+    assert ".hero-scrub__transitional-fade" in css
+    assert "border-radius: 80px 80px 4px 4px;" in css
+    assert ".card-swatch-dot" in css
+    assert ".catalog-view-toggle" in css
+    assert ".product-grid--editorial" in css
+
+    # 3. Liquid Architecture
+    with open("snippets/product-card.liquid", "r", encoding="utf-8") as f:
+        card_liquid = f.read()
+    assert "product-card__swatches" in card_liquid
+    assert "card-swatch-dot" in card_liquid
+
+    with open("sections/product-grid.liquid", "r", encoding="utf-8") as f:
+        grid_liquid = f.read()
+    assert "catalog-view-toggle" in grid_liquid
+    assert "product-grid--editorial" in grid_liquid
+
+    # 4. index.html Standalone
+    with open("index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    assert "artisanal-canvas-bg" in html
+    assert "brand-marginalia" in html
+    assert "hero-scrub__transitional-fade" in html
+    assert "catalog-view-toggle" in html
+    assert "card-swatch-dot" in html
+
+    print("      [PASS] Artisanal Canvas background, architectural arched cards, and 3-way swatches verified.")
+
 if __name__ == "__main__":
     print("=" * 65)
     print(" TAAGA BY DISHA - ENHANCED AUTOMATED BUILD VERIFICATION SUITE")
-    print(" Phase 1 & Phase 2: Full Architecture & Functional Verification")
+    print(" Phase 1, 2 & 3: Full Architecture & Functional Verification")
     print("=" * 65)
     test_frames()
     test_css_tokens()
@@ -474,7 +521,8 @@ if __name__ == "__main__":
     test_phase2_css_polish()
     test_phase2_ai_catalog_assets()
     test_phase2_templates_and_html()
+    test_phase3_canvas_and_lookbook()
     print("=" * 65)
-    print(" ALL TESTS PASSED SUCCESSFULLY! (10/10 TEST SUITES PASSING)")
+    print(" ALL TESTS PASSED SUCCESSFULLY! (11/11 TEST SUITES PASSING)")
     print("=" * 65)
 

@@ -57,6 +57,8 @@
       this.initCartGiftProgress();
       this.initPurchasePulses();
       this.initPrivilegeClaim();
+      this.initCardSwatches();
+      this.initCatalogViewToggle();
 
       // 6. Handle Viewport Resize and Mobile Physics Transitions
       window.addEventListener('resize', () => this.handleResize(), { passive: true });
@@ -796,6 +798,72 @@
         setTimeout(() => {
           document.getElementById('cart-drawer-trigger')?.click();
         }, 400);
+      });
+    }
+
+    /* ========================================================================
+       12. ARCHITECTURAL CARD SWATCH PERSPECTIVE LENSES
+       ======================================================================== */
+    initCardSwatches() {
+      document.addEventListener('click', (e) => {
+        const dot = e.target.closest('.card-swatch-dot');
+        if (!dot) return;
+
+        const card = dot.closest('.product-card');
+        if (!card) return;
+
+        const dots = card.querySelectorAll('.card-swatch-dot');
+        dots.forEach(d => d.classList.remove('is-active'));
+        dot.classList.add('is-active');
+
+        const viewType = dot.getAttribute('data-view');
+        const viewSrc = dot.getAttribute('data-src');
+        const foldedImg = card.querySelector('.product-card__image--folded');
+        const drapeImg = card.querySelector('.product-card__image--drape');
+        const inspectBtn = card.querySelector('[data-open-zoom-inspect]');
+
+        if (viewType === 'drape' && drapeImg) {
+          if (foldedImg) foldedImg.style.opacity = '0';
+          drapeImg.style.opacity = '1';
+          if (inspectBtn) inspectBtn.setAttribute('data-zoom-src', drapeImg.src);
+        } else if (viewType === 'folded' && foldedImg) {
+          if (foldedImg) foldedImg.style.opacity = '1';
+          if (drapeImg) drapeImg.style.opacity = '0';
+          if (inspectBtn) inspectBtn.setAttribute('data-zoom-src', foldedImg.src);
+        } else if (viewSrc && drapeImg) {
+          drapeImg.src = viewSrc;
+          if (foldedImg) foldedImg.style.opacity = '0';
+          drapeImg.style.opacity = '1';
+          if (inspectBtn) inspectBtn.setAttribute('data-zoom-src', viewSrc);
+        }
+      });
+    }
+
+    /* ========================================================================
+       13. CATALOG VIEW MODE TOGGLE (EDITORIAL LOOKBOOK VS ARCHIVE GRID)
+       ======================================================================== */
+    initCatalogViewToggle() {
+      const toggleContainer = document.querySelector('.catalog-view-toggle');
+      const gridContainer = document.getElementById('product-grid-container');
+      if (!toggleContainer || !gridContainer) return;
+
+      const buttons = toggleContainer.querySelectorAll('.catalog-view-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+
+          const mode = btn.getAttribute('data-view-mode');
+          if (mode === 'editorial') {
+            gridContainer.classList.add('product-grid--editorial');
+          } else {
+            gridContainer.classList.remove('product-grid--editorial');
+          }
+
+          if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+          }
+        });
       });
     }
   }

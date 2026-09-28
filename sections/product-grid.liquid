@@ -12,17 +12,29 @@
     <header class="catalog-header">
       <span class="sub-title">{{ section.settings.sub_heading | default: 'Curated Autumn Archive' }}</span>
       <div class="catalog-meta">
-        <h2 id="catalog-heading" class="section-title">
-          {{ section.settings.heading | default: 'The Handloom Sanctuary' }}
-        </h2>
-        <p style="max-width: 480px; color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.6;">
-          {{ section.settings.description | default: 'Woven upon ancestral pit looms across Bengal, Varanasi, and Maheshwar. Each creation honors singular artisan lineage.' }}
-        </p>
+        <div>
+          <h2 id="catalog-heading" class="section-title">
+            {{ section.settings.heading | default: 'The Handloom Sanctuary' }}
+          </h2>
+          <p style="max-width: 480px; color: var(--color-text-muted-dark); font-size: 0.9375rem; line-height: 1.6; margin-top: 0.5rem;">
+            {{ section.settings.description | default: 'Woven upon ancestral pit looms across Bengal, Varanasi, and Maheshwar. Each creation honors singular artisan lineage.' }}
+          </p>
+        </div>
+
+        <!-- Curated Catalog View Toggle: Editorial Lookbook vs Archive Grid -->
+        <div class="catalog-view-toggle" role="group" aria-label="Catalog Layout Mode">
+          <button type="button" class="catalog-view-btn is-active" data-view-mode="editorial" aria-label="Editorial Lookbook View">
+            <span>✦ Editorial Lookbook</span>
+          </button>
+          <button type="button" class="catalog-view-btn" data-view-mode="grid" aria-label="Archive Grid View">
+            <span>❖ Archive Grid</span>
+          </button>
+        </div>
       </div>
     </header>
 
-    <!-- Mobile-First Grid: 2-column mobile, 3-column desktop (Strict 4:5 Aspect Ratio Cards) -->
-    <div class="product-grid" id="product-grid-container">
+    <!-- Architectural Editorial & Archive Grid (Strict 4:5 Aspect Ratio Cards) -->
+    <div id="product-grid-container" class="product-grid product-grid--editorial">
       {%- assign collection = section.settings.collection -%}
       {%- if collection != blank and collection.products.size > 0 -%}
         {%- for product in collection.products limit: section.settings.products_to_show -%}
